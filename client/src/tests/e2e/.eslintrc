@@ -1,0 +1,19 @@
+settings:
+  ecmascript: 6
+
+ecmaFeatures:
+  blockBindings: true,
+  forOf: true
+
+env:
+  browser: true,
+  node: true,
+  mocha: true,
+  jasmine: true,
+  amd: true
+
+globals:
+  angular: true
+
+plugins:
+  - angular

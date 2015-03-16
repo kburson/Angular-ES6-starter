@@ -1,0 +1,50 @@
+{
+  "name": "Angular-ES6-starter",
+  "version": "0.0.1",
+  "description": "SPA client application connecting to RESTful services.",
+  "main": "index.html",
+  "devDependencies": {},
+  "dependencies": {
+    "plugin-json": "git+https://git@github.com/systemjs/plugin-json.git#~0.1.0",
+    "extended-javascript-console": "~0.6.0"
+  },
+  "pending": {
+    "angular-permission": "~0.1.7",
+    "foundation": "zurb/bower-foundation#~5.5.1",
+    "svg-morpheus": "~0.1.8",
+    "html5-boilerplate": "~5.0.0"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "moduleType": [
+    "es6",
+    "node"
+  ],
+  "keywords": [
+    "Angular",
+    "Gulp",
+    "Bower",
+    "REST",
+    "SPA",
+    "PHP"
+  ],
+  "authors": [
+    "Kendrick Burson <kburson@talentwise.com>"
+  ],
+  "license": "MIT",
+  "homepage": "http://www.talentwise.com",
+  "private": true,
+  "preen": {
+    "angular": [
+      "*.js",
+      "*.js.*",
+      "*.css",
+      "package.json"
+    ]
+  }
+}

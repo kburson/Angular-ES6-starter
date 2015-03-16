@@ -1,0 +1,32 @@
+{
+  "environments": {
+    "local": {
+      "hosts": {
+        "api": "https://apps.",
+        "admin": "https://admin."
+      }
+    },
+    "staging": {
+      "hosts": {
+        "api": "https://apps.staging.company.com",
+        "admin": "https://admin.staging.company.com"
+      }
+    },
+    "production": {
+      "hosts": {
+        "api": "https://www.company.com",
+        "admin": "https://admin.company.com"
+      }
+    }
+  },
+
+  "resources": {
+    "api": {
+      "greeting": "/api/greeting",
+      "createToken": "/api/jwt"
+    },
+    "admin": {
+      "authentication_params": "{client-host}#/redirect?returnTo={view}&pat={{token}}"
+    }
+  }
+}

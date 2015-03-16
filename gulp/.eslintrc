@@ -1,0 +1,17 @@
+{
+    "settings": {
+        "ecmascript": 5,
+        "jsx": false
+    },
+    "ecmaFeatures": {
+        "blockBindings": true,
+        "forOf": true
+    },
+    "env": {
+        "node": true,
+        "amd": true
+    },
+    "rules": {
+        "quotes": [2, "single", "avoid-escape"]
+    }
+}

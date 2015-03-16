@@ -1,0 +1,53 @@
+{
+  "comments-directories": ["################################################################",
+    "list basic folder structure for this application"
+  ],
+  "directories": {
+    "src": "client/src",
+    "app": "client/src/app",
+    "docs": "client/docs",
+    "e2e": "client/src/e2e-tests",
+    "tools": "tools",
+    "gulpTasks": "gulp",
+    "build": "_build",
+    "dist": "_release"
+  },
+
+  "comments-files": ["################################################################",
+    "list all source files that require compilation and distribution into build and dist folders"
+  ],
+  "files": {
+    "build": ["gulpfile.js","gulp/*.js"],
+    "es6": [
+      "client/src/app/**/*.es6",
+      "!client/src/app/**/*.spec.es6"
+    ],
+    "vendor": {
+      "js":[],
+      "min":[]
+    },
+    "other": [],
+    "docs": [
+      "client/docs/**/*.md",
+      "client/src/**/*.md"
+      ],
+    "less": [
+      "client/src/**/*.less"
+      ],
+    "tests": {
+      "unit": "client/src/app/**/*.spec.es6",
+      "e2e":  "client/src/tests/**/*.scenario.es6"
+    },
+    "tpl": [ "client/src/app/**/*.tpl" ],
+    "index": "client/src/app/index.html"
+  },
+
+  "comments-server": ["################################################################",
+    "what is my local server configuration (passed to browser-sync process to host app)"
+  ],
+  "server": {
+    "host": "127.0.0.1",
+    "port": 3000
+  }
+
+}
