@@ -53,12 +53,13 @@ module.exports = function (config) {
 
     systemjs: {
       // Path to your SystemJS configuration file
-      //configFile: 'client/src/app/system.config.js',
+      configFile: 'client/src/app/system.config.js',
 
       // File patterns for application code, dependencies, and test suites
       // all file paths are relative to basePath
       files: [
         '_build/resources.json',
+        '_build/js/lib/**/*.js',
         'client/src/app/**/*.es6',
         'client/src/app/bootstrap.js'
       ],
@@ -132,7 +133,7 @@ module.exports = function (config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: true,
+    singleRun: false,
     background: false
   });
 };
