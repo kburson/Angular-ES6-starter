@@ -195,7 +195,7 @@
     "karma-serve-static": "^1.0.12",
     "karma-spec-reporter": "0.0.16",
     "karma-story-reporter": "^0.3.1",
-    "karma-systemjs": "^0.1.4",
+    "karma-systemjs": "git+https://github.com/rolaveric/karma-systemjs.git#issue7",
     "karma-tap-reporter": "0.0.3",
     "karma-traceur-preprocessor": "^0.4.0",
     "less-plugin-autoprefix": "^1.4.0",

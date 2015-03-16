@@ -1,12 +1,14 @@
 // Karma configuration
+var path=require('path');
+var appRoot =  path.resolve( __dirname + '/../../../..');
 
-console.log("=== projectRoot = ", projectRoot);
+console.log("=== projectRoot = ", appRoot);
 
 module.exports = function (config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: projectRoot,
+    basePath: appRoot,
     urlRoot: '',
     hostname: 'localhost',
     frameworks: [ 'systemjs','mocha','chai','chai-as-promised','sinon-chai'],
@@ -130,7 +132,7 @@ module.exports = function (config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false,
+    singleRun: true,
     background: false
   });
 };
