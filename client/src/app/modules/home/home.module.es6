@@ -3,7 +3,7 @@
 
 import angular from 'angular';
 
-import commonModule from 'modules/common/common.module';
+import commonModule from 'app/modules/common/common.module';
 
 import GreetingService    from './greeting/GreetingService';
 

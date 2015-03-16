@@ -7,6 +7,7 @@ import 'angular-mocks';
 import appModule from './app.module';
 
 let mockModule = angular.module('app.mock', [ appModule.name, 'ngMockE2E']);
+export default mockModule;
 
 mockModule.run(/*@ngInject*/ ($http, $httpBackend, $window, EXTERNAL_SERVICES) => {
 

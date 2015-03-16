@@ -1,27 +1,23 @@
 'use strict';
 /*jshint esnext: true */
 
-import angular from 'angular';
+import angular from 'npm/angular/angular.min';
 
-import 'angular-resource';
-import 'angular-messages';
-import 'angular-aria';
-import 'angular-animate';
-import 'angular-material';
-//import 'loading-bar';
-import 'angular-storage';
-import 'angular-cookies';
+import 'npm/angular-resource/angular-resource.min';
+import 'npm/angular-messages/angular-messages.min';
+import 'npm/angular-aria/angular-aria.min';
+import 'npm/angular-animate/angular-animate.min';
+import 'npm/angular-material/angular-material.min';
+import 'npm/angular-storage/dist/angular-storage.min';
+import 'npm/angular-cookies/angular-cookies.min';
 
-import templatesModule from './templates/templates.module';
 import constantsModule from './constants/constants.module';
 
 
 let commonModule = angular.module('common', [
     'ngCookies',
     'angular-storage',
-    //'cfp.loadingBar',
     constantsModule.name,
-    templatesModule.name,
     'ngResource',
     'ngMessages',
     'ngAria',

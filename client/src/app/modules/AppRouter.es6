@@ -4,8 +4,8 @@
 // importing class dependencies assure that they will be loaded before this class is constructed.
 // even if angular.module handles all the dependency injection.
 
-import 'angular-ui-router';
-import 'statehelper';
+import 'npm/angular-ui-router/release/angular-ui-router.min';
+import 'npm/angular-ui-router.statehelper/statehelper.min';
 
 import MasterTemplateController from './common/masterTemplate/MasterTemplateController';
 import AuthenticationController from './common/authentication/AuthenticationController';

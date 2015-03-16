@@ -1,41 +1,24 @@
-<!doctype html>
-<head>
+<!DOCTYPE html>
+<html>
+<head lang="en">
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
 
-    <title>Angular-ES6-Starter</title>
+    <title>Verifications Client App</title>
 
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <base href="/ver">
 
-    <!-- inject:css -->
-    <!-- endinject -->
-
-    <!-- inject:version -->
-    <!-- endinject -->
-
-    <!-- Extend browser with ES6 polyfills -->
-    <script src="/js/lib/traceur-runtime.js"></script>
-
-    <!-- extend the browser with lodash and extended console -->
-    <script src="/js/lib/xcon-0.6.0.min.js"></script>
-    <script src="/js/lib/lodash.min.js"></script>
-
-    <!-- load AMD auto-loader to retrieve application source -->
-    <script src="/js/lib/system.js"></script>
-
-    <!-- configure the auto-loader -->
-    <script src="/js/system.config.js"></script>
-
 </head>
-<body>
+<body ng-app="app">
 
 <!-- The main view for the application -->
 <div ui-view="main" class="root-view"></div>
 
-<!-- Start the application -->
-<script src="/js/bootstrap.js"></script>
+<!-- Load the application -->
+<script src="http://localhost:8080/webpack-dev-server.js"></script>
+<script src="bundle.js"></script>
 
 </body>
 </html>

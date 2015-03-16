@@ -9,10 +9,10 @@
  * @requires
  * */
 
-import 'angular-resource';
-import 'angular-storage';
+import 'npm/angular-resource/angular-resource.min';
+import 'npm/angular-storage/dist/angular-storage.min';
 
-import 'modules/common/constants/constants.module';
+import 'app/modules/common/constants/constants.module';
 
 let authenticationService = class AuthenticationService {
 

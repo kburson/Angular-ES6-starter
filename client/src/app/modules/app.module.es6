@@ -1,28 +1,28 @@
 'use strict';
 /*jshint esnext: true */
 
-import angular from 'angular';
+import angular from 'npm/angular/angular.min';
 
-import 'angular-ui-router';
-import 'statehelper';
+import 'npm/angular-ui-router/release/angular-ui-router.min';
+import 'npm/angular-ui-router.statehelper/statehelper.min';
 
-import commonModule from 'modules/common/common.module';
-import homeModule   from 'modules/home/home.module';
+import commonModule from './common/common.module';
+import homeModule   from './home/home.module';
 
 import AppRouter from './AppRouter';
 
-let mainModule = angular.module('app', [
+let app = angular.module('app', [
     'ui.router',
     'ui.router.stateHelper',
     commonModule.name,
     homeModule.name
 ]);
 
-export default mainModule;
+export default app;
 
-mainModule.config(AppRouter);
+app.config(AppRouter);
 
-mainModule.run(($window, $rootScope, $state, APP_INFO) => {
+app.run(($window, $rootScope, $state, APP_INFO) => {
 
     // if state changes, check if we are logged in.
     $rootScope.$on('$STATE_CHANGE', (event, toState, toParams, fromState) => {

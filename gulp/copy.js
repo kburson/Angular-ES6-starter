@@ -108,7 +108,7 @@ gulp.task('copy-vendor', function() {
             'angular-material/angular-material.min.js?(.map)',
             'angular-loading-bar/build/loading-bar.min.js?(.map)'
         ], {cwd: 'node_modules'}))
-    .pipe($.print(function(path) {return "<---- copy: " + path;}))
+    //.pipe($.print(function(path) {return "<---- copy: " + path;}))
     .pipe($.flatten())
     .pipe($.newer(libFolder))
         //.pipe($.concat('vendor.js'))

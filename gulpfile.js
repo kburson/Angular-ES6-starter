@@ -1,121 +1,80 @@
-/*global require __dirname __filename */
-'use strict'; // only needed for ES5 scripts
+var gulp = require("gulp");
+var gutil = require("gulp-util");
 
-global.projectRoot = __dirname;
+var webpack = require("webpack");
+var WebpackDevServer = require("webpack-dev-server");
+var webpackConfig = require("./webpack.config.js");
 
-global.gulp = require('gulp');
+// The development server (the recommended option for development)
+gulp.task("default", ["webpack-dev-server"]);
 
-global.del = require('del');
-global.notifier = require('node-notifier');
-global.runSequence = require('run-sequence');
-global.eventStream = require('event-stream');
-global.minimist = require('minimist');
-global.merge = require('merge-stream');
-global.glob = require('glob');
-global.sprintf = require('sprintf');
-
-global.$ = require('gulp-load-plugins')({
-  pattern: 'gulp-*',
-  scope: 'devDependencies',
-  camelized: true,
-  lazy: true
+// Build and watch cycle (another option for development)
+// Advantage: No server required, can run app from filesystem
+// Disadvantage: Requests are not blocked until bundle is available,
+//               can serve an old app on refresh
+gulp.task("build-dev", ["webpack:build-dev"], function() {
+  gulp.watch(["client/src/app/**/*"], ["webpack:build-dev"]);
 });
 
-global.pkg = require('./package.json');
-global.config = require('./gulp.config.json');
-global.DIR = config.directories;
-global.FILES = config.files;
+// Production build
+gulp.task("build", ["webpack:build"]);
+gulp.task("webpack:build", function(callback) {
+  // modify some webpack config options
+  var myConfig = Object.create(webpackConfig);
+  myConfig.plugins = myConfig.plugins.concat(
+    new webpack.DefinePlugin({
+      "process.env": {
+        "NODE_ENV": JSON.stringify("production")
+      }
+    }),
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.UglifyJsPlugin()
+  );
 
-
-require('require-dir')('./gulp', {recurse: true});
-
-// #######################################################
-
-gulp.task('default', function (cb) {
-  var startTime =  Date.now();
-  $.util.log($.util.colors.blue(['',
-    '#####################################################################',
-    '#                                                                   #',
-    '#   One moment please while I compile and test this application...  #',
-    '#                                                                   #',
-    '#####################################################################'
-  ].join('\n')));
-  // notifier sends growl message not console message
-  //notifier.notify({title: 'default task', message: 'build and test application'});
-  runSequence('build', 'test', function(cb) {
-    $.util.log($.util.colors.blue(['',
-      '#####################################################################',
-      '#                                                                   #',
-      '#   Your application has been compiled and is ready to go.          #',
-      '#   Use "gulp express" to host the applications locally             #',
-      '#                                                                   #',
-      '#####################################################################'
-    ].join('\n')));
-    $.util.log($.util.colors.green('Total Build Time: ' + Date.now() /*- startTime*/));
+  // run webpack
+  webpack(myConfig, function(err, stats) {
+    if(err) throw new gutil.PluginError("webpack:build", err);
+    gutil.log("[webpack:build]", stats.toString({
+      colors: true
+    }));
+    callback();
   });
 });
 
-// #######################################################
+// modify some webpack config options
+var myDevConfig = Object.create(webpackConfig);
+myDevConfig.devtool = "sourcemap";
+myDevConfig.debug = true;
 
-gulp.task('update', ['npm', 'bower']);
+// create a single instance of the compiler to allow caching
+var devCompiler = webpack(myDevConfig);
 
-gulp.task('note', function() {
-    notifier.notify({title: 'THIS IS A NOTE', message: 'Just notifying you that you have received a note from gulp.'});
+gulp.task("webpack:build-dev", function(callback) {
+  // run webpack
+  devCompiler.run(function(err, stats) {
+    if(err) throw new gutil.PluginError("webpack:build-dev", err);
+    gutil.log("[webpack:build-dev]", stats.toString({
+      colors: true
+    }));
+    callback();
+  });
 });
 
-gulp.task('start', function(cb){
-    runSequence('build', 'test', 'express', cb);
-    $.util.log($.util.colors.green("Open a browser and connect to this computer (either ip address or local name) at port 5000\ni.e.  http://localhost:5000"));
-});
+gulp.task("webpack-dev-server", function(callback) {
+  // modify some webpack config options
+  var myConfig = Object.create(webpackConfig);
+  myConfig.devtool = "eval";
+  myConfig.debug = true;
 
-gulp.task('start.mocked', function(cb){
-    runSequence('build.mocked', 'test', 'express', cb);
-    $.util.log($.util.colors.red('The app has been compiled with mocked external services - for testing purposes only!'));
-    $.util.log($.util.colors.green("Open a browser and connect to this computer (either ip address or local name) at port 5000\ni.e.  http://localhost:5000"));
-});
-
-
-gulp.task('dev', function(cb) {
-    //$.util.log($.util.colors.blue('dev = build, watch, serve'));
-    runSequence('build', ['watch', 'serve'], cb);
-});
-
-gulp.task('build', function(cb) {
-  $.util.log($.util.colors.red('\n## Building with config set to use live external services'));
-    runSequence('clean:build', 'less:build', ['config.resources', 'traceur', 'copy', 'templates:build'], 'index:build', cb);
-});
-
-gulp.task('build.mocked', function(cb) {
-  $.util.log($.util.colors.red('\n## After compile I will set config to use mocked services'));
-  runSequence('build','config.mocks', cb);
-});
-
-gulp.task('test', ['unit','e2e'], function() {
-    // karma
-
-});
-
-gulp.task('unit', function() {
-  $.util.log($.util.colors.green(['','Starting unit tests with Karma and Mocha.'].join('\n### ')));
-
-});
-
-
-//gulp.task('package', function() {
-//    $.util.log($.util.colors.blue('minify, obfuscate and concatenate all resources and save to distribution folder'));
-//
-//    // ngAnnotate, uglify/minify
-//    // copy assets to dist folder
-//
-//});
-
-gulp.task('e2e', function() {
-    $.util.log($.util.colors.green(['',
-        'Starting functional Tests using Protractor and WebDriver',
-        'Starting web server to host files from distribution folder, then',
-        'I will start selenium server to act as a test proxy to the browser',
-        'then I will run all functional e2e-tests against hosted app'
-    ].join('\n### ')));
-
-    // setup and run protractor tests.
+  // Start a webpack-dev-server
+  new WebpackDevServer(webpack(myConfig), {
+    publicPath: "/" + myConfig.output.publicPath,
+    stats: {
+      progress: true,
+      colors: true
+    }
+  }).listen(8080, "localhost", function(err) {
+      if(err) throw new gutil.PluginError("webpack-dev-server", err);
+      gutil.log("[webpack-dev-server]", "http://localhost:8080/webpack-dev-server/index.html");
+    });
 });

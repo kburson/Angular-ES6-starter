@@ -8,7 +8,7 @@
  * @requires $scope
  * */
 
-import 'modules/common/constants/constants.module';
+import 'app/modules/common/constants/constants.module';
 
 let welcomeController = class WelcomeController {
 

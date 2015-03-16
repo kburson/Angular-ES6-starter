@@ -22,6 +22,11 @@
 
         <div style="color:blue">
             <div class="nav-item">
+                <i class="fa fa-columns nav-icon"></i>
+                Client Notes
+                <i class="fa fa-chevron-circle-right nav-detail-icon"></i>
+            </div>
+            <div class="nav-item">
                 <i class="fa fa-file-text-o nav-icon"></i>
                 Notes
                 <i class="fa fa-chevron-circle-right nav-detail-icon"></i>

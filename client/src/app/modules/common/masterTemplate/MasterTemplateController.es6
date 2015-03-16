@@ -8,11 +8,11 @@
  * _Please update the description and dependencies._
  *
  * */
-import 'angular-aria';
-import 'angular-animate';
-import 'angular-material';
+import 'npm/angular-aria/angular-aria.min';
+import 'npm/angular-animate/angular-animate.min';
+import 'npm/angular-material/angular-material.min';
 
-import 'modules/common/authentication/AuthenticationService';
+import 'app/modules/common/authentication/AuthenticationService';
 
 let masterTemplateController = class MasterTemplateController {
 
