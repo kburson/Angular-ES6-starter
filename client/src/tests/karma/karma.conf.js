@@ -1,6 +1,7 @@
 // Karma configuration
 var path=require('path');
-var appRoot =  path.resolve( __dirname + '/../../../..');
+var appRoot =  path.resolve( __dirname + '/../../../../');
+//var appRoot =   '../../../../';
 
 console.log("=== projectRoot = ", appRoot);
 
@@ -8,7 +9,7 @@ module.exports = function (config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: appRoot,
+    basePath: appRoot,  // -->  /client/src/
     urlRoot: '',
     hostname: 'localhost',
     frameworks: [ 'systemjs','mocha','chai','chai-as-promised','sinon-chai'],
@@ -37,11 +38,11 @@ module.exports = function (config) {
       //'karma-safari-launcher',
       //'karma-phantomjs-launcher',
 
-      'karma-mocha-reporter',
+      //'karma-mocha-reporter',
       //'karma-nested-reporter',
-      'karma-story-reporter',
-      'karma-nyan-reporter',
-      'karma-html-reporter',
+      //'karma-story-reporter',
+      //'karma-nyan-reporter',
+      //'karma-html-reporter',
       //'karma-growl-reporter',
       //'karma-doc-reporter',
       //'karma-tap-reporter',
@@ -58,37 +59,53 @@ module.exports = function (config) {
       // File patterns for application code, dependencies, and test suites
       // all file paths are relative to basePath
       files: [
-        '_build/resources.json',
-        'client/src/app/**/*.es6',
-        'client/src/app/bootstrap.js'
+        // basePath:  /
+        'client/lib/lodash.min.js',
+        '_build/resources.json', // I need a gulp processed version of this file.
+        'bower_components/extended-javascript-console/dist/xcon-0.6.0.min.js',
+        'node_modules/angular/angular.min.js',
+        'node_modules/angular-animate/angular-animate.min.js',
+        'node_modules/angular-aria/angular-aria.min.js',
+        'node_modules/angular-cookies/angular-cookies.min.js',
+        'node_modules/angular-loading-bar/build/loading-bar.min.js',
+        'node_modules/angular-material/angular-material.min.js',
+        'node_modules/angular-messages/angular-messages.min.js',
+        'node_modules/angular-mocks/angular-mocks.js',
+        'node_modules/angular-resource/angular-resource.min.js',
+        'node_modules/angular-storage/dist/angular-storage.min.js',
+        'node_modules/angular-ui-router/release/angular-ui-router.min.js',
+        'node_modules/angular-ui-router.statehelper/statehelper.min.js',
+        'client/src/app/**/*.es6'
       ],
 
       // SystemJS configuration specifically for tests, added after your config file.
       // Good for adding test libraries and mock modules
+      // basePath:  /client/src/
       config: {
-        baseUrl     : '/client/src/app/',
         transpiler  : 'traceur',
+        baseURL     : '/client/src/app/modules', // './'  ||   '/client/src/app/modules'
         paths: {
-          'angular'            : 'node_modules/angular/angular.min.js',
-          'angular-animate'    : 'node_modules/angular-animate/angular-animate.min.js',
-          'angular-aria'       : 'node_modules/angular-aria/angular-aria.min.js',
-          'angular-cookies'    : 'node_modules/angular-cookies/angular-cookies.min.js',
-          'loading-bar'        : 'node_modules/angular-loading-bar/build/loading-bar.min.js',
-          'angular-material'   : 'node_modules/angular-material/angular-material.min.js',
-          'angular-messages'   : 'node_modules/angular-messages/angular-messages.min.js',
-          'angular-mocks'      : 'node_modules/angular-mocks/angular-mocks.js',
-          'angular-resource'   : 'node_modules/angular-resource/angular-resource.min.js',
-          'angular-storage'    : 'node_modules/angular-storage/dist/angular-storage.min.js',
-          'angular-ui-router'  : 'node_modules/angular-ui-router/release/angular-ui-router.min.js',
-          'statehelper'        : 'node_modules/angular-uit-router.statehelper/statehelper.min.js',
-          'lodash'             : 'client/lib/lodash.min.js',
-          'json'               : 'bower_components/plugin-json/json.js',
-          '*.es6'              : '*.es6'
+          '*.es6'              : '*.es6',
+          'lodash'             : '../../../lib/lodash.min.js',
+          'json'               : '../../../../bower_components/plugin-json/json.js',
+          'text'               : '../../../../bower_components/plugin-text/text.js',
+          'angular'            : '../../../../node_modules/angular/angular.min.js',
+          'angular-animate'    : '../../../../node_modules/angular-animate/angular-animate.min.js',
+          'angular-aria'       : '../../../../node_modules/angular-aria/angular-aria.min.js',
+          'angular-cookies'    : '../../../../node_modules/angular-cookies/angular-cookies.min.js',
+          'loading-bar'        : '../../../../node_modules/angular-loading-bar/build/loading-bar.min.js',
+          'angular-material'   : '../../../../node_modules/angular-material/angular-material.min.js',
+          'angular-messages'   : '../../../../node_modules/angular-messages/angular-messages.min.js',
+          'angular-mocks'      : '../../../../node_modules/angular-mocks/angular-mocks.js',
+          'angular-resource'   : '../../../../node_modules/angular-resource/angular-resource.min.js',
+          'angular-storage'    : '../../../../node_modules/angular-storage/dist/angular-storage.min.js',
+          'angular-ui-router'  : '../../../../node_modules/angular-ui-router/release/angular-ui-router.min.js',
+          'statehelper'        : '../../../../node_modules/angular-ui-router.statehelper/statehelper.min.js'
         }
       },
       // Specify the suffix used for test suite file names.
       // Defaults to .test.js, .spec.js, _test.js, and _spec.js
-      testFileSuffix: '.spec.js'
+      testFileSuffix: '.spec.es6'
     },
 
     client: {

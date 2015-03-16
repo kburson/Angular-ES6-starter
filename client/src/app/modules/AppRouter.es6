@@ -7,11 +7,19 @@
 import 'angular-ui-router';
 import 'statehelper';
 
-import MasterTemplateController from './common/masterTemplate/MasterTemplateController';
 import AuthenticationController from './common/authentication/AuthenticationController';
 import RedirectionController    from './common/redirection/RedirectionController';
+
+import MasterTemplateController from './common/masterTemplate/MasterTemplateController';
 import WelcomeController        from './home/welcome/WelcomeController';
-import GreetingController       from './home/greeting/GreetingController';
+
+import GreetingController from './home/greeting/GreetingController';
+
+//import * as greeting from './home/greeting/GreetingController';
+
+//import welcomeTemplate from './home/welcome/welcome.tpl!text';
+//import masterTemplate from './common/masterTemplate/masterTemplate.tpl!text'
+
 
 let appRouter = class AppRouter {
     /* ngInject */
@@ -28,6 +36,7 @@ let appRouter = class AppRouter {
               main: { // index.html defines 'ui-view='main''
                 controller: MasterTemplateController.name,
                 templateUrl: 'common/masterTemplate/masterTemplate.tpl',
+                //template: masterTemplate,
                 controllerAs: 'masterTemplate'
               }
             },
@@ -39,6 +48,7 @@ let appRouter = class AppRouter {
                   content: {
                     controller: WelcomeController.name,
                     templateUrl: 'home/welcome/welcome.tpl',
+                    //template: welcomeTemplate,
                     controllerAs: 'vm'
                   }
                 }
@@ -48,9 +58,10 @@ let appRouter = class AppRouter {
                 url: '/greeting',
                 views: {
                   content: {
-                    controller: GreetingController.name,
+                    controller: greeting.controller.name,
                     templateUrl: 'home/greeting/greeting.tpl',
                     controllerAs: 'vm'
+                    //template: greeting.template
                   }
                 }
               }]

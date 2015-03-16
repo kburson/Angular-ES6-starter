@@ -3,7 +3,7 @@
 
 import './GreetingService';
 
-let greetingController = class GreetingController {
+let controller = class GreetingController {
 
     /* @ngInject */
     constructor($state, GreetingService) {
@@ -23,6 +23,7 @@ let greetingController = class GreetingController {
 
 };
 
-greetingController.$inject = ['$state','GreetingService'];
+// I cannot 'export default class GreetingController = {...}' because I need to assure angular DI here.
+controller.$inject = ['$state','GreetingService'];
 
-export default greetingController;
+export default controller;
