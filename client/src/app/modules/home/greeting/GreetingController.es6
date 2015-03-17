@@ -23,6 +23,7 @@ let greetingController = class GreetingController {
 
 };
 
+// I cannot 'export default class GreetingController = {...}' because I need to assure angular DI here.
 greetingController.$inject = ['$state','GreetingService'];
 
 export default greetingController;

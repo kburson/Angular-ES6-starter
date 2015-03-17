@@ -13,6 +13,12 @@ import RedirectionController    from './common/redirection/RedirectionController
 import WelcomeController        from './home/welcome/WelcomeController';
 import GreetingController       from './home/greeting/GreetingController';
 
+//import * as greeting from './home/greeting/GreetingController';
+
+//import welcomeTemplate from './home/welcome/welcome.tpl!text';
+//import masterTemplate from './common/masterTemplate/masterTemplate.tpl!text'
+
+
 let appRouter = class AppRouter {
     /* ngInject */
     constructor($urlRouterProvider, $stateProvider, stateHelperProvider) {
@@ -28,6 +34,7 @@ let appRouter = class AppRouter {
               main: { // index.html defines 'ui-view='main''
                 controller: MasterTemplateController.name,
                 templateUrl: 'common/masterTemplate/masterTemplate.tpl',
+                //template: masterTemplate,
                 controllerAs: 'masterTemplate'
               }
             },
@@ -39,6 +46,7 @@ let appRouter = class AppRouter {
                   content: {
                     controller: WelcomeController.name,
                     templateUrl: 'home/welcome/welcome.tpl',
+                    //template: welcomeTemplate,
                     controllerAs: 'vm'
                   }
                 }
@@ -51,6 +59,7 @@ let appRouter = class AppRouter {
                     controller: GreetingController.name,
                     templateUrl: 'home/greeting/greeting.tpl',
                     controllerAs: 'vm'
+                    //template: greeting.template
                   }
                 }
               }]

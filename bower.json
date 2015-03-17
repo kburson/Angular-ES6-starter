@@ -5,7 +5,8 @@
   "main": "index.html",
   "devDependencies": {},
   "dependencies": {
-    "plugin-json": "git+https://git@github.com/systemjs/plugin-json.git#~0.1.0",
+    "plugin-json": "git://github.com/systemjs/plugin-json.git#~0.1.0",
+    "plugin-text": "git://github.com/systemjs/plugin-text.git#~0.0.2",
     "extended-javascript-console": "~0.6.0"
   },
   "pending": {

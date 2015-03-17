@@ -19,6 +19,7 @@ System.config({
     'statehelper'        : 'lib/statehelper.min.js',
     'loading-bar'        : 'lib/loading-bar.min.js',
     'json'               : 'lib/json.js',
+    'text'               : 'lib/text.js',
     'resources.json'     : '../resources.json'
   },
   // give hints for module dependencies

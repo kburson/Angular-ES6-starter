@@ -1,6 +1,7 @@
 // Karma configuration
 var path=require('path');
 var appRoot =  path.resolve( __dirname + '/../../../..');
+//var appRoot = path.resolve( '/../../../../');
 
 console.log("=== projectRoot = ", appRoot);
 
@@ -8,7 +9,7 @@ module.exports = function (config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: appRoot,
+    basePath: '../../../../',  // ~ /client/src/test/karma/karma.conf.js
     urlRoot: '',
     hostname: 'localhost',
     frameworks: [ 'systemjs','mocha','chai','chai-as-promised','sinon-chai'],
@@ -37,11 +38,11 @@ module.exports = function (config) {
       //'karma-safari-launcher',
       //'karma-phantomjs-launcher',
 
-      'karma-mocha-reporter',
+      //'karma-mocha-reporter',
       //'karma-nested-reporter',
-      'karma-story-reporter',
-      'karma-nyan-reporter',
-      'karma-html-reporter',
+      //'karma-story-reporter',
+      //'karma-nyan-reporter',
+      //'karma-html-reporter',
       //'karma-growl-reporter',
       //'karma-doc-reporter',
       //'karma-tap-reporter',
@@ -52,44 +53,22 @@ module.exports = function (config) {
     ],
 
     systemjs: {
-      // Path to your SystemJS configuration file
-      configFile: 'client/src/app/system.config.js',
-
-      // File patterns for application code, dependencies, and test suites
-      // all file paths are relative to basePath
+      configFile: '_build/js/system.config.js',
       files: [
-        '_build/resources.json',
-        '_build/js/lib/**/*.js',
-        'client/src/app/**/*.es6',
-        'client/src/app/bootstrap.js'
+        '_build/js/lib/*.js',           // dependent libraries
+        //'client/src/app/**/*.es6',    // app src (with tests)
+        //'client/src/app/bootstrap.js, // angular bootstrap from systemjs
+        '_build/js/modules/**/*.js',
+        'client/src/app/**/*.spec.es6'
       ],
-
-      // SystemJS configuration specifically for tests, added after your config file.
-      // Good for adding test libraries and mock modules
       config: {
-        baseUrl     : '/client/src/app/',
-        transpiler  : 'traceur',
+        transpiler: 'traceur',
         paths: {
-          'angular'            : 'node_modules/angular/angular.min.js',
-          'angular-animate'    : 'node_modules/angular-animate/angular-animate.min.js',
-          'angular-aria'       : 'node_modules/angular-aria/angular-aria.min.js',
-          'angular-cookies'    : 'node_modules/angular-cookies/angular-cookies.min.js',
-          'loading-bar'        : 'node_modules/angular-loading-bar/build/loading-bar.min.js',
-          'angular-material'   : 'node_modules/angular-material/angular-material.min.js',
-          'angular-messages'   : 'node_modules/angular-messages/angular-messages.min.js',
-          'angular-mocks'      : 'node_modules/angular-mocks/angular-mocks.js',
-          'angular-resource'   : 'node_modules/angular-resource/angular-resource.min.js',
-          'angular-storage'    : 'node_modules/angular-storage/dist/angular-storage.min.js',
-          'angular-ui-router'  : 'node_modules/angular-ui-router/release/angular-ui-router.min.js',
-          'statehelper'        : 'node_modules/angular-uit-router.statehelper/statehelper.min.js',
-          'lodash'             : 'client/lib/lodash.min.js',
-          'json'               : 'bower_components/plugin-json/json.js',
-          '*.es6'              : '*.es6'
-        }
+          '*.es6': '*.es6'
+        },
+        baseURL: '/'
       },
-      // Specify the suffix used for test suite file names.
-      // Defaults to .test.js, .spec.js, _test.js, and _spec.js
-      testFileSuffix: '.spec.js'
+      testFileSuffix: '.spec.es6'
     },
 
     client: {
@@ -99,11 +78,11 @@ module.exports = function (config) {
       }
     },
 
-    reporters: ['junit', 'spec', /*'coverage',*/ 'failed'],
+    reporters: ['junit', 'spec', 'failed'],
     reportSlowerThan: 1000,
     junitReporter: {
       outputFile: 'reports/unit-test-results.xml',
-      suite: ''
+      suite: 'unit-tests'
     },
 
     // enable / disable colors in the output (reporters and logs)

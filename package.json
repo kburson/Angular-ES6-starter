@@ -23,14 +23,12 @@
     "watch": "gulp dev",
     "serve": "gulp serve",
 
-    "preinstall": "",
-    "postinstall": "npm prune && npm run bower",
+    "postinstall": "bower install",
 
-    "prebower": "bower prune",
-    "bower": "bower install",
-    "postbower": "bower prune",
+    "pretest": "gulp config.resources",
+    "test": "gulp karma",
 
-    "test": "gulp test",
+
     "start": "http-server _build -a localhost -p 8000 -c-1 -d false --cors",
     "express": "gulp express",
 

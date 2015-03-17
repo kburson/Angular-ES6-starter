@@ -82,6 +82,7 @@ gulp.task('copy-vendor', function() {
 
         gulp.src([
             'plugin-json/json.js',
+            'plugin-text/text.js',
             'svg-morpheus/svg-morpheus.js',
             'extended-javascript-console/dist/xcon-*.min.js'
         ], {cwd: 'bower_components'}),

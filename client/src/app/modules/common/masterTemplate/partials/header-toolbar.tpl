@@ -1,7 +1,7 @@
 <md-toolbar class="md-toolbar-tools md-toolbar-tools-top toolbar"
             layout="row" layout-fill-horizontal layout-align="start center">
 
-    <img src="/favicon.png" style="height:32px; width:32px; margin-right:10px;"/>
+    <img src="img/angular.jpg" style="height:32px; width:32px; margin-right:10px;"/>
 
     <md-button class="md-raised menu-button" aria-label="Home" ng-disabled="masterTemplate.isState('home')"
                ng-click="masterTemplate.goToState('home')">

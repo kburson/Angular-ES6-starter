@@ -8,7 +8,8 @@
  * Tests for GreetingController under Verifications
  * _Enter the test description._
  * */
-import 'modules/app.module';
+import '../../app.module';
+import 'angular-mocks';
 
 describe('Controller: app.home.GreetingController', function () {
 

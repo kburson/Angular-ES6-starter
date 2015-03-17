@@ -6,8 +6,8 @@ import angular from 'angular';
 import 'angular-ui-router';
 import 'statehelper';
 
-import commonModule from 'modules/common/common.module';
-import homeModule   from 'modules/home/home.module';
+import commonModule from './common/common.module';
+import homeModule   from './home/home.module';
 
 import AppRouter from './AppRouter';
 
