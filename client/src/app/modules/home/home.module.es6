@@ -2,10 +2,10 @@
 /*jshint esnext: true */
 
 import angular from 'angular';
-import 'ui.router';
+import 'angular-ui-router';
 import 'statehelper';
 
-import commonModule from 'common/common.module';
+import commonModule from '../common/common.module';
 
 import GreetingService    from './greeting/GreetingService';
 

@@ -12,7 +12,7 @@
 import 'angular-resource';
 import 'angular-storage';
 
-import 'common/constants/constants.module';
+import '../constants/constants.module';
 
 let authenticationService = class AuthenticationService {
 

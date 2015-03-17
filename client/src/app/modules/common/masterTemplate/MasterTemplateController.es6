@@ -12,7 +12,7 @@ import 'angular-aria';
 import 'angular-animate';
 import 'angular-material';
 
-import 'common/authentication/AuthenticationService';
+import '../authentication/AuthenticationService';
 
 let masterTemplateController = class MasterTemplateController {
 

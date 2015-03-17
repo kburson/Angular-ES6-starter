@@ -3,23 +3,24 @@ startTimeOfApplicationLoading = Date.now();
 
 // Identical to writing System.basURL - ...
 System.config({
-  baseURL: './', //relative to index.html location
+  baseURL: '/js/', //relative to index.html location
   paths: {
-    'lodash'             : 'js/lib/lodash.min.js',
-    'angular'            : 'js/lib/angular.min.js',
-    'angular-animate'    : 'js/lib/angular-animate.min.js',
-    'angular-messages'   : 'js/lib/angular-messages.min.js',
-    'angular-aria'       : 'js/lib/angular-aria.min.js',
-    'angular-resource'   : 'js/lib/angular-resource.min.js',
-    'angular-cookies'    : 'js/lib/angular-cookies.min.js',
-    'angular-storage'    : 'js/lib/angular-storage.min.js',
-    'angular-material'   : 'js/lib/angular-material.min.js',
-    'angular-mocks'      : 'js/lib/angular-mocks.js',
-    'angular-ui-router'  : 'js/lib/angular-ui-router.min.js',
-    'statehelper'        : 'js/lib/statehelper.min.js',
-    'loading-bar'        : 'js/lib/loading-bar.min.js',
-    'json'               : 'js/lib/json.js',
-    'resources.json'     : 'resources.json'
+    'lodash'             : 'lib/lodash.min.js',
+    'angular'            : 'lib/angular.min.js',
+    'angular-animate'    : 'lib/angular-animate.min.js',
+    'angular-messages'   : 'lib/angular-messages.min.js',
+    'angular-aria'       : 'lib/angular-aria.min.js',
+    'angular-resource'   : 'lib/angular-resource.min.js',
+    'angular-cookies'    : 'lib/angular-cookies.min.js',
+    'angular-storage'    : 'lib/angular-storage.min.js',
+    'angular-material'   : 'lib/angular-material.min.js',
+    'angular-mocks'      : 'lib/angular-mocks.js',
+    'angular-ui-router'  : 'lib/angular-ui-router.min.js',
+    'statehelper'        : 'lib/statehelper.min.js',
+    'loading-bar'        : 'lib/loading-bar.min.js',
+    'json'               : 'lib/json.js',
+    'text'               : 'lib/text.js',
+    'resources.json'     : '../resources.json'
   },
   // give hints for module dependencies
   meta: {

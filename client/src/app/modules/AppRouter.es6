@@ -7,13 +7,11 @@
 import 'angular-ui-router';
 import 'statehelper';
 
+import MasterTemplateController from './common/masterTemplate/MasterTemplateController';
 import AuthenticationController from './common/authentication/AuthenticationController';
 import RedirectionController    from './common/redirection/RedirectionController';
-
-import MasterTemplateController from './common/masterTemplate/MasterTemplateController';
 import WelcomeController        from './home/welcome/WelcomeController';
-
-import GreetingController from './home/greeting/GreetingController';
+import GreetingController       from './home/greeting/GreetingController';
 
 //import * as greeting from './home/greeting/GreetingController';
 
@@ -58,7 +56,7 @@ let appRouter = class AppRouter {
                 url: '/greeting',
                 views: {
                   content: {
-                    controller: greeting.controller.name,
+                    controller: GreetingController.name,
                     templateUrl: 'home/greeting/greeting.tpl',
                     controllerAs: 'vm'
                     //template: greeting.template
