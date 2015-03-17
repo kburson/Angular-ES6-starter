@@ -58,8 +58,8 @@ module.exports = function (config) {
         '_build/js/lib/*.js',           // dependent libraries
         //'client/src/app/**/*.es6',    // app src (with tests)
         //'client/src/app/bootstrap.js, // angular bootstrap from systemjs
-        '_build/js/modules/**/*.js',
-        'client/src/app/**/*.spec.es6'
+        '_build/js/modules/**/*.js',    // compiled app modules
+        'client/src/app/**/*.spec.es6'  // pre-compiled test fixtures
       ],
       config: {
         transpiler: 'traceur',
