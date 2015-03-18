@@ -26,7 +26,16 @@ System.config({
   meta: {
     'angular': {format: 'global', exports: 'angular'},
     'angular-ui-router': {format: 'global', deps: ['angular']},
-    'statehelper': {format: 'global', deps: ['angular', 'angular-ui-router']}
+    'statehelper': {format: 'global', deps: ['angular', 'angular-ui-router']},
+    'angular-animate': {format: 'global', deps: ['angular']},
+    'angular-aria': {format: 'global', deps: ['angular']},
+    'angular-cookies': {format: 'global', deps: ['angular']},
+    'angular-loading-bar': {format: 'global', deps: ['angular']},
+    'angular-material': {format: 'global', deps: ['angular','angular-messages','angular-aria','angular-animate']},
+    'angular-messages': {format: 'global', deps: ['angular']},
+    'angular-mocks': {format: 'global', deps: ['angular']},
+    'angular-resource': {format: 'global', deps: ['angular']},
+    'angular-storage': {format: 'global', deps: ['angular']}
   },
 
   // create aliases
