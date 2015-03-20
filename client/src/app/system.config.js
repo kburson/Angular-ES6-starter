@@ -39,7 +39,7 @@ System.config({
   // create aliases
   // SystemJS Plugins, referenced with "moduleName!pluginName"
   map: {
-    'json': '../lib/json',
-    'text': '../lib/text'
+    //'json': '../lib/json',
+    //'text': '../lib/text'
   }
 });
