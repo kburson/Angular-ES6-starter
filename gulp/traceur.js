@@ -5,9 +5,9 @@ gulp.task('traceur', function(release) {
 
     release = release || false;
 
-    var destination = DIR.build + '/js/';
+    var destination = DIR.build + '/js/modules/';
 
-    return gulp.src(['**/*.js',
+    return gulp.src(['modules/**/*.js',
                       '!**/*.spec.js',
                       '!**/*.scenario.js'
             ], {cwd: 'client/src/app'})
