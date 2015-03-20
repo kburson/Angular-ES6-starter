@@ -18,8 +18,9 @@ System.config({
     'angular-mocks'      : '../lib/angular-mocks.js',
     'angular-ui-router'  : '../lib/angular-ui-router.min.js',
     'loading-bar'        : '../lib/loading-bar.min.js',
-    'json'               : '../lib/json',
-    'text'               : '../lib/text'
+    'json'               : '../lib/json.js',
+    'text'               : '../lib/text.js',
+    'resources.json'     : '../../resources.json'
   },
   // give hints for module dependencies
   meta: {

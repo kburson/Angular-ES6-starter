@@ -12,15 +12,15 @@
 
 import 'angular';
 
-import common from 'common/common';
+import commonModule from 'common/common.module';
 
-import greeting from './greeting/greeting';
-import welcome  from './welcome/welcome';
+import greetingModule from './greeting/greeting.module';
+import welcomeModule  from './welcome/welcome.module';
 
 export default angular.module('home', [
-  common.name,
-  greeting.name,
-  welcome.name
+  commonModule.name,
+  greetingModule.name,
+  welcomeModule.name
 ])
 // .config()
 // .run()

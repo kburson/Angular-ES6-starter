@@ -1,11 +1,12 @@
 import 'angular';
+import 'angular-ui-router';
 
-import common            from 'common/common';
+import commonModule            from 'common/common.module';
 
 import template          from './welcome.tpl!text';
 import WelcomeController from './WelcomeController';
 
-export default angular.module('welcome', [ common.name ])
+export default angular.module('welcome', [ 'ui.router', commonModule.name ])
 .controller(WelcomeController.name,  WelcomeController)
 .config( ($stateProvider) => {
   $stateProvider.state('root.home', {

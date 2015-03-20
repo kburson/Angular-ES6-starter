@@ -2,14 +2,14 @@
 /*jshint esnext: true */
 
 import 'angular'; // '$q', '$window', '$location'
-import 'constants/constants'; // 'EXTERNAL_SERVICES'
+import 'common/constants/constants.module'; // 'EXTERNAL_SERVICES'
 
 // this variable is defined in the global scope,
 // but it will be wrapped in an AMD requirejs define statement
 // creating a file local scope, making 'self' global only in this file.
 let self;
 
-export default class AuthenticationInterceptor {
+let authenticationInterceptor = class AuthenticationInterceptor {
 
     /*@ngInject*/
     constructor($q, $window, $location, EXTERNAL_SERVICES) {
@@ -79,12 +79,13 @@ export default class AuthenticationInterceptor {
         return self.$q.reject(rejection);
     }
 
-};
+}
 
-AuthenticationInterceptor.$inject = [
+authenticationInterceptor.$inject = [
   '$q',
   '$window',
   '$location',
   'EXTERNAL_SERVICES'
 ];
 
+export default authenticationInterceptor;

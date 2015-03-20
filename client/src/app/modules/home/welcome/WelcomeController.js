@@ -8,10 +8,10 @@
  * @requires cosntants
  * */
 
-import 'common/constants/constants'; // 'APP_INFO'
-import './welcome.tpl';
+import 'common/constants/constants.module'; // 'APP_INFO'
+import './welcome.tpl!text';
 
-export default class WelcomeController {
+let welcomeController = class WelcomeController {
 
     /* @ngInject */
     constructor(APP_INFO) {
@@ -22,5 +22,6 @@ export default class WelcomeController {
         return this.info.name;
     }
 
-};
-WelcomeController.$inject = ['APP_INFO'];
+}
+welcomeController.$inject = ['APP_INFO'];
+export default welcomeController;

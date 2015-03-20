@@ -13,14 +13,14 @@ import 'angular-animate';
 import 'angular-material';
 
 // only import to define as q dependency
-import './masterPage.tpl!text';
+import 'common/constants/constants.module';
 import 'common/authentication/AuthenticationService';
-import 'common/constants';
+import './masterPage.tpl!text';
 
 import bottomSheet from './bottom-sheet.tpl!text';
 
 
-export default class MasterPageController {
+let masterPageController = class MasterPageController {
 
     /* @ngInject */
     constructor($state, $mdSidenav, $mdBottomSheet, AuthenticationService, MOCKED_SERVICES) {
@@ -79,5 +79,7 @@ export default class MasterPageController {
         this.authenticationService.logout();
         this.$state.go('root.home');
     }
-};
-MasterPageController.$inject = ['$state', '$mdSidenav', '$mdBottomSheet', 'AuthenticationService', 'MOCKED_SERVICES'];
+}
+masterPageController.$inject = ['$state', '$mdSidenav', '$mdBottomSheet', 'AuthenticationService', 'MOCKED_SERVICES'];
+
+export default masterPageController;

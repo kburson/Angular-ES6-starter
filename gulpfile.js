@@ -26,6 +26,7 @@ global.config = require('./gulp.config.json');
 global.DIR = config.directories;
 global.FILES = config.files;
 
+global.isMocked = false;
 
 require('require-dir')('./gulp', {recurse: true});
 
@@ -81,11 +82,14 @@ gulp.task('dev', function(cb) {
 });
 
 gulp.task('build', function(cb) {
-  $.util.log($.util.colors.red('\n## Building with config set to use live external services'));
-    runSequence('clean:build', 'less:build', ['config.resources', 'traceur', 'copy', 'templates:build'], 'index:build', cb);
+  if (!isMocked) {
+    $.util.log($.util.colors.blue('\n## Building with config set to use live external services'));
+  }
+  runSequence('clean:build', 'less:build', ['config.resources', 'traceur', 'copy'], 'index:build', cb);
 });
 
 gulp.task('build.mocked', function(cb) {
+  isMocked = true;
   $.util.log($.util.colors.red('\n## After compile I will set config to use mocked services'));
   runSequence('build','config.mocks', cb);
 });

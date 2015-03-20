@@ -23,8 +23,7 @@ let greetingService = class GreetingService {
     greetMe() {
         return this.resource.get({}).$promise;
     }
-};
+}
 
 greetingService.$inject = ['$resource','EXTERNAL_SERVICES'];
-
 export default greetingService;

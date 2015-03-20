@@ -12,8 +12,8 @@ import 'angular-material';
 import 'angular-storage';
 import 'angular-cookies';
 
-import constants  from './constants/constants';
-import masterPage from './masterPage/masterPage';
+import constantsModule  from './constants/constants.module';
+import masterPageModule from './masterPage/masterPage.module';
 
 import MainTheme from './MainTheme';
 // TODO:  How do we register the MD Theme ??
@@ -28,8 +28,8 @@ import RedirectionController     from './redirection/RedirectionController';
 
 
 export default angular.module('common', [
-    constants.name,
-    masterPage.name,
+    constantsModule.name,
+    masterPageModule.name,
     'ui.router',
     'angular-storage',
     'ngCookies',
@@ -37,7 +37,7 @@ export default angular.module('common', [
     'ngMessages',
     'ngAria',
     'ngAnimate',
-    'ngMaterial',
+    'ngMaterial'
     //'cfp.loadingBar'
 ])
 

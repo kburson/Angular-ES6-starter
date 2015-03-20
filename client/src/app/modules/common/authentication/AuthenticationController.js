@@ -12,7 +12,7 @@ import 'angular'; // '$location'
 import 'angular-ui-router'; // '$state', '$stateParams'
 import './AuthenticationService';
 
-export default class AuthenticationController {
+let authenticationController = class AuthenticationController {
 
     /*@ngInject*/
     constructor($state, $stateParams, $location, AuthenticationService) {
@@ -43,9 +43,9 @@ export default class AuthenticationController {
             }
         );
     }
-};
+}
 
-AuthenticationController.$inject = [
+authenticationController.$inject = [
   '$state',
   '$stateParams',
   '$location',
@@ -53,3 +53,4 @@ AuthenticationController.$inject = [
 ];
 
 
+export default  authenticationController;

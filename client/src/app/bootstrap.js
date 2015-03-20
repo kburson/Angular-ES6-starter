@@ -2,21 +2,23 @@ System.import('resources.json!').then(function(json) {
   window.resources = json;
 
   if (json.useMockedServices) {
-    System.import('modules/mock.app.module').then(
+    System.import('mock.app.module').then(
       function(a) {
+        console.log('bootstrapping "mock.app.module" with: ', a);
         angular.element(document).ready(
           function () {
-            angular.bootstrap(document, ['app.mock']);
+            angular.bootstrap(document, ['mock.app']);
           }
         );
       },
       function(a, b, c) {
-        console.out('\na:', a, '\nb:', b, '\nc:', c);
+        console.log('\na:', a.message, a.stack, '\nb:', b, '\nc:', c);
       }
     );
   } else {
-    System.import('modules/app.module').then(
+    System.import('app.module').then(
       function (a) {
+        console.log('bootstrapping "app.module" with: ', a);
         angular.element(document).ready(
           function () {
             angular.bootstrap(document, ['app']);
@@ -24,7 +26,7 @@ System.import('resources.json!').then(function(json) {
         );
       },
       function (a, b, c) {
-        console.out('\na:', a, '\nb:', b, '\nc:', c);
+        console.log('\na:', a.message, a.stack,  '\nb:', b, '\nc:', c);
       }
     );
   }

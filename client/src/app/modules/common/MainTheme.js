@@ -2,9 +2,8 @@
 /*jshint esnext: true */
 
 import 'angular-ui-router';
-import 'statehelper';
 
-export default class MainTheme {
+class MainTheme {
     /* ngInject */
     constructor()
     {
@@ -12,3 +11,5 @@ export default class MainTheme {
 }
 
 MainTheme.$inject = [];
+
+export default MainTheme;

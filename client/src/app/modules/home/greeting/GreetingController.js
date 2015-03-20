@@ -13,7 +13,7 @@
 import 'angular-ui-router';
 import './GreetingService';
 
-export default class GreetingController {
+let greetingController = class GreetingController {
 
     /* @ngInject */
     constructor($state, GreetingService) {
@@ -31,5 +31,6 @@ export default class GreetingController {
         });
     }
 
-};
-GreetingController.$inject = ['$state','GreetingService'];
+}
+greetingController.$inject = ['$state','GreetingService'];
+export default greetingController;

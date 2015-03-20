@@ -1,23 +1,22 @@
 import 'angular';
 import 'angular-ui-router';
 
-import constantsModule      from './constants/constants.module';
-import MasterPageController from './masterTemplate/MasterPageController';
+import constantsModule      from 'common/constants/constants.module';
+import MasterPageController from './MasterPageController';
 import masterPageTemplate   from './masterPage.tpl!text';
 
 
 export default angular.module('masterPage', [
-    'ui.router'
+    'ui.router', constantsModule.name
   ])
-  .config( ($stateProvider) => {
+  .config( $stateProvider => {
   $stateProvider.state('root', {
     abstract: true,
     views: {
       main: { // index.html defines 'ui-view='main''
+        controllerAs: mp,
         controller: MasterPageController.name,
-        //templateUrl: 'common/masterTemplate/masterPage.tpl',
-        template: masterPageTemplate,
-        controllerAs: MasterPageController
+        template: masterPageTemplate
       }
     }
   });

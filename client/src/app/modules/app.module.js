@@ -5,8 +5,8 @@ import angular from 'angular';
 
 import 'angular-ui-router'; // '$state', '$urlRouterProvider'
 
-import commonModule from './common/common';
-import homeModule   from './home/home';
+import commonModule from './common/common.module';
+import homeModule   from './home/home.module';
 
 export default angular.module('app', [
     'ui.router',

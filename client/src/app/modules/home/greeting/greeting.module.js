@@ -1,12 +1,13 @@
 import 'angular';
+import 'angular-ui-router';
 
-import common             from 'common/common';
+import commonModule             from 'common/common.module';
 
 import template           from './greeting.tpl!text';
 import GreetingController from './GreetingController';
 import GreetingService    from './GreetingService';
 
-export default angular.module('welcome', [ common.name ])
+export default angular.module('welcome', [ 'ui.router', commonModule.name ])
 
   .service(GreetingService.name, GreetingService)
 

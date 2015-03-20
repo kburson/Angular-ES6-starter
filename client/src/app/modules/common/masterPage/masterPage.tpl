@@ -6,8 +6,8 @@
 
         <img src="img/angular.jpg" style="height:32px; width:32px; margin-right:10px;"/>
 
-        <md-button class="md-raised menu-button" aria-label="Home" ng-disabled="masterTemplate.isState('home')"
-                   ng-click="masterTemplate.goToState('home')">
+        <md-button class="md-raised menu-button" aria-label="Home" ng-disabled="mp.isState('home')"
+                   ng-click="mp.goToState('home')">
           <i class="fa fa-home">
             <md-tooltip>Go Home</md-tooltip>
           </i> Home
@@ -17,16 +17,16 @@
         <md-button class="md-raised menu-button" ng-disabled="false" aria-label="Edit">Edit</md-button>
         <md-button class="md-raised menu-button" ng-disabled="false" aria-label="View">View</md-button>
 
-        <md-button class="md-raised menu-button" aria-label="greeting" ng-disabled="masterTemplate.isState('greeting')"
-                   ng-click="masterTemplate.goToState('greeting')" >
+        <md-button class="md-raised menu-button" aria-label="greeting" ng-disabled="mp.isState('greeting')"
+                   ng-click="mp.goToState('greeting')" >
           <i class="fa fa-comment-o">
             <md-tooltip md-delay="600" md-direction="top">Get Greeting</md-tooltip>
           </i>
         </md-button>
 
         <md-button class="md-raised menu-button" aria-label="logout"  style="float:right;"
-                   ng-if="masterTemplate.isLoggedIn()"
-                   ng-click="masterTemplate.logout()" >
+                   ng-if="mp.isLoggedIn()"
+                   ng-click="mp.logout()" >
           <i class="fa fa-lock">
             <md-tooltip>Logout</md-tooltip>
           </i> Logout
@@ -41,21 +41,21 @@
 
           <div class="md-whiteframe-z2 nav-control"
                layout="row" layout-align="center start"
-               ng-if="!masterTemplate.navState.left.open"
-               ng-click="masterTemplate.toggleSideNav('left')"
+               ng-if="!mp.navState.left.open"
+               ng-click="mp.toggleSideNav('left')"
             >
-            <i class="fa fa-bars" ng-click="masterTemplate.toggleSideNav('left')"></i>
+            <i class="fa fa-bars" ng-click="mp.toggleSideNav('left')"></i>
           </div>
 
           <md-sidenav class="md-sidenav-left md-whiteframe-z2 left-nav "
                       md-component-id="leftNav"
-                      md-is-open="masterTemplate.navState.left.open"
-                      md-is-locked-open="masterTemplate.navState.left.locked"
+                      md-is-open="mp.navState.left.open"
+                      md-is-locked-open="mp.navState.left.locked"
                       style="padding: 5px 5px 5px 5px;">
             <div hide-md show-gt-md layout="column" style="padding: 5px 5px 5px 5px;">
 
               <div class="nav-item">Menu
-                <i class="fa fa-bars nav-detail-icon" ng-click="masterTemplate.toggleSideNav('left')"></i>
+                <i class="fa fa-bars nav-detail-icon" ng-click="mp.toggleSideNav('left')"></i>
               </div>
 
               <md-divider style="margin:0 0 1em 0;"></md-divider>
@@ -98,16 +98,16 @@
 
         <div>
           <div class="md-whiteframe-z2 nav-control" layout="row" layout-align="center start"
-               ng-click="masterTemplate.toggleSideNav('right')"
-               ng-if="!masterTemplate.navState.right.open" >
-            <i class="fa fa-bars" ng-click="masterTemplate.toggleSideNav('right')"></i>
+               ng-click="mp.toggleSideNav('right')"
+               ng-if="!mp.navState.right.open" >
+            <i class="fa fa-bars" ng-click="mp.toggleSideNav('right')"></i>
           </div>
 
           <md-sidenav flex="25" class="md-sidenav-right  md-whiteframe-z2 right-nav"
                       md-component-id="rightNav"
-                      md-is-locked-open="masterTemplate.navState.right.locked"
-                      md-is-open="masterTemplate.navState.right.open">
-            <i style="float:right;" class="fa fa-bars" ng-click="masterTemplate.toggleSideNav('right')"></i>
+                      md-is-locked-open="mp.navState.right.locked"
+                      md-is-open="mp.navState.right.open">
+            <i style="float:right;" class="fa fa-bars" ng-click="mp.toggleSideNav('right')"></i>
 
             <div style="color:black; margin-left:10px;">
               <p>
@@ -138,14 +138,14 @@
     <section id="footer-toolbar">
       <md-toolbar class="md-toolbar-tools md-toolbar-tools-bottom toolbar"
                   layout="row" layout-align="start center">
-        <md-button ng-click="masterTemplate.showBottomSheet($event)">
+        <md-button ng-click="mp.showBottomSheet($event)">
           <i class="fa fa-search" style="padding-right:10px; font-size:1.3em;"></i>Search
         </md-button>
         <md-button><i class="fa fa-check" style="padding-right:10px; font-size:1.3em;"></i>Today</md-button>
         <md-button><i class="fa fa-circle" style="padding-right:10px; font-size:1.3em;"></i>Yesterday</md-button>
         <md-button><i class="fa fa-circle-o" style="padding-right:10px; font-size:1.3em;"></i>History</md-button>
 
-        <div ng-if="masterTemplate.mocked" style="float:right; color:red">External Services are Mocked</div>
+        <div ng-if="mp.mocked" style="float:right; color:red">External Services are Mocked</div>
 
       </md-toolbar>
     </section>

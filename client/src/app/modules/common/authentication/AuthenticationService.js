@@ -13,9 +13,9 @@ import 'angular'; // '$http'
 import 'angular-resource'; // '$resource
 import 'angular-storage';  // 'store'
 
-import 'common/constants/constants'; //'EXTERNAL_SERVICES'
+import 'common/constants/constants.module'; //'EXTERNAL_SERVICES'
 
-export default class AuthenticationService {
+let authenticationService = class AuthenticationService {
 
   /*@ngInject*/
   constructor($http, $resource, store, EXTERNAL_SERVICES) {
@@ -69,11 +69,12 @@ export default class AuthenticationService {
     this.deleteToken();
     this.deleteUser();
   }
-};
+}
 
-AuthenticationService.$inject = [
+authenticationService.$inject = [
   '$http',
   '$resource',
   'store',
   'EXTERNAL_SERVICES'];
 
+export default authenticationService;
