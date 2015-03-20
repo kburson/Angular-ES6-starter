@@ -1,9 +1,19 @@
 'use strict';
 /*jshint esnext: true */
+/**
+ * @ngdoc controller
+ * @name GreetingController
+ *
+ * @description
+ * _Please update the description and dependencies._
+ *
+ * @requires GreetingService, $state
+ * */
 
+import 'angular-ui-router';
 import './GreetingService';
 
-let greetingController = class GreetingController {
+export default class GreetingController {
 
     /* @ngInject */
     constructor($state, GreetingService) {
@@ -22,8 +32,4 @@ let greetingController = class GreetingController {
     }
 
 };
-
-// I cannot 'export default class GreetingController = {...}' because I need to assure angular DI here.
-greetingController.$inject = ['$state','GreetingService'];
-
-export default greetingController;
+GreetingController.$inject = ['$state','GreetingService'];

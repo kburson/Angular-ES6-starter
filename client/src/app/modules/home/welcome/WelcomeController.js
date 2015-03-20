@@ -5,12 +5,13 @@
  * @description
  * _Please update the description and dependencies._
  *
- * @requires $scope
+ * @requires cosntants
  * */
 
-import '../../common/constants/constants.module';
+import 'common/constants/constants'; // 'APP_INFO'
+import './welcome.tpl';
 
-let welcomeController = class WelcomeController {
+export default class WelcomeController {
 
     /* @ngInject */
     constructor(APP_INFO) {
@@ -22,7 +23,4 @@ let welcomeController = class WelcomeController {
     }
 
 };
-
-welcomeController.$inject = ['APP_INFO'];
-
-export default welcomeController;
+WelcomeController.$inject = ['APP_INFO'];

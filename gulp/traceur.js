@@ -7,17 +7,17 @@ gulp.task('traceur', function(release) {
 
     var destination = DIR.build + '/js/';
 
-    return gulp.src(['**/*.es6',
-                      '!**/*.spec.es6',
-                      '!**/*.scenario.es6'
+    return gulp.src(['**/*.js',
+                      '!**/*.spec.js',
+                      '!**/*.scenario.js'
             ], {cwd: 'client/src/app'})
         //.pipe($.print(function(path) {return "<---- src: " + path;}))
-        .pipe($.rename(function (path) {
-          //$.util.log($.util.colors.red('rename ' + path.basename + '.' + path.extname));
-          path.extname = '.js';
-          //path.dirname += '/ver';
-          //path.basename = path.basename.replace(/\.es6$/, '.js');
-        }))
+        //.pipe($.rename(function (path) {
+        //  //$.util.log($.util.colors.red('rename ' + path.basename + '.' + path.extname));
+        //  path.extname = '.js';
+        //  //path.dirname += '/ver';
+        //  //path.basename = path.basename.replace(/\.es6$/, '.js');
+        //}))
         //.pipe($.newer(destination))  // only pass files that are newer than destination
         //.pipe($.ngAnnotate({
         //    remove:true,  // remove existing annotations
@@ -26,8 +26,8 @@ gulp.task('traceur', function(release) {
         //    es6: true
         //}))
       .pipe($.traceur({
-            modules: 'amd', //'register', //'commonjs',
-            //script: false,
+            modules: 'instantiate', // amd, commonjs, closure, instantiate, inline, register
+        //script: false,
             //asyncFunctions: true,
             //annotations: true,
             //types: true,

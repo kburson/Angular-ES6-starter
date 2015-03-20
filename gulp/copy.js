@@ -21,13 +21,23 @@ gulp.task('copy-config', function() {
 });
 
 gulp.task('copy-html', function() {
-  return gulp.src([
+  var html = gulp.src([
     '*.html',
     '!index.html'
-  ], {cwd: 'client/src/app'})
-    .pipe($.newer(DIR.build))
-    //.pipe($.print())
+  ], {cwd: 'client/src/app/'})
+    //.pipe($.newer(DIR.build))
+    .pipe($.print())
     .pipe(gulp.dest(DIR.build));
+
+  var tpl = gulp.src([
+    '**/*.tpl'
+  ], {cwd: 'client/src/app/'})
+    //.pipe($.newer(DIR.build))
+    .pipe($.print())
+    .pipe(gulp.dest(DIR.build + '/js/'));
+
+  return eventStream.concat(html, tpl);
+
 });
 
 gulp.task('copy-assets', function() {

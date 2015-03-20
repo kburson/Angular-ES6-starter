@@ -9,12 +9,13 @@
  * @requires
  * */
 
-import 'angular-resource';
-import 'angular-storage';
+import 'angular'; // '$http'
+import 'angular-resource'; // '$resource
+import 'angular-storage';  // 'store'
 
-import '../constants/constants.module';
+import 'common/constants/constants'; //'EXTERNAL_SERVICES'
 
-let authenticationService = class AuthenticationService {
+export default class AuthenticationService {
 
   /*@ngInject*/
   constructor($http, $resource, store, EXTERNAL_SERVICES) {
@@ -22,14 +23,8 @@ let authenticationService = class AuthenticationService {
     this.store = store;
     this.authTokenService = $resource(`${EXTERNAL_SERVICES.hosts.api}${EXTERNAL_SERVICES.resources.api.createToken}`);
     //'https://apps.host/ver/api/jwt');
-  }
 
-  set user(userData) {
-    this.user = userData;
-  }
-
-  get user() {
-    return this.user;
+    this.user = {};
   }
 
   get authToken() {
@@ -56,6 +51,7 @@ let authenticationService = class AuthenticationService {
 
   deleteUser() {
     delete this.user;
+    this.user = {};
   }
 
   requestAuthToken(pre_authentication_token) {
@@ -75,7 +71,9 @@ let authenticationService = class AuthenticationService {
   }
 };
 
-authenticationService.$inject = ['$http', '$resource', 'store', 'EXTERNAL_SERVICES'];
-
-export default authenticationService;
+AuthenticationService.$inject = [
+  '$http',
+  '$resource',
+  'store',
+  'EXTERNAL_SERVICES'];
 

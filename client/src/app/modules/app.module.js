@@ -3,26 +3,20 @@
 
 import angular from 'angular';
 
-import 'angular-ui-router';
-import 'statehelper';
+import 'angular-ui-router'; // '$state', '$urlRouterProvider'
 
-import commonModule from './common/common.module';
-import homeModule   from './home/home.module';
+import commonModule from './common/common';
+import homeModule   from './home/home';
 
-import AppRouter from './AppRouter';
-
-let mainModule = angular.module('app', [
+export default angular.module('app', [
     'ui.router',
-    'ui.router.stateHelper',
     commonModule.name,
     homeModule.name
-]);
-
-export default mainModule;
-
-mainModule.config(AppRouter);
-
-mainModule.run(($window, $rootScope, $state, APP_INFO) => {
+])
+.config( $urlRouterProvider => {
+  $urlRouterProvider.otherwise('/home');
+})
+.run(($window, $rootScope, $state, APP_INFO) => {
 
     // if state changes, check if we are logged in.
     $rootScope.$on('$STATE_CHANGE', (event, toState, toParams, fromState) => {

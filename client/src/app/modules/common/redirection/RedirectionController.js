@@ -8,7 +8,10 @@
  *
  * */
 
-let redirectionController = class RedirectionController {
+import 'angular';            // '$location', '$window'
+import 'angular-ui-router';  // '$state'
+
+export default class RedirectionController {
 
     /* @ngInject */
     constructor($state, $location, $window)
@@ -22,6 +25,4 @@ let redirectionController = class RedirectionController {
     }
 };
 
-redirectionController.$inject = ['$state','$location', '$window'];
-
-export default redirectionController;
+RedirectionController.$inject = ['$state','$location', '$window'];

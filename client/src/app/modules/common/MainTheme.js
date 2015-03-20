@@ -4,13 +4,11 @@
 import 'angular-ui-router';
 import 'statehelper';
 
-let mainTheme = class MainTheme {
+export default class MainTheme {
     /* ngInject */
     constructor()
     {
     }
 }
 
-mainTheme.$inject = [];
-
-export default mainTheme;
+MainTheme.$inject = [];
