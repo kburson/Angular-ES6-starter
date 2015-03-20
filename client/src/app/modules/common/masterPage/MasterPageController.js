@@ -12,7 +12,7 @@ import 'angular-aria';
 import 'angular-animate';
 import 'angular-material';
 
-// only import to define as q dependency
+// only import to define as a dependency
 import 'common/constants/constants.module';
 import 'common/authentication/AuthenticationService';
 import './masterPage.tpl!text';
@@ -23,7 +23,7 @@ import bottomSheet from './bottom-sheet.tpl!text';
 let masterPageController = class MasterPageController {
 
     /* @ngInject */
-    constructor($state, $mdSidenav, $mdBottomSheet, AuthenticationService, MOCKED_SERVICES) {
+    constructor($state, $mdSidenav, $mdBottomSheet, AuthenticationService, EXTERNAL_SERVICES_ARE_MOCKED) {
         this.$state = $state;
         this.$mdSidenav = $mdSidenav;
         this.$mdBottomSheet = $mdBottomSheet;
@@ -80,6 +80,6 @@ let masterPageController = class MasterPageController {
         this.$state.go('root.home');
     }
 }
-masterPageController.$inject = ['$state', '$mdSidenav', '$mdBottomSheet', 'AuthenticationService', 'MOCKED_SERVICES'];
+masterPageController.$inject = ['$state', '$mdSidenav', '$mdBottomSheet', 'AuthenticationService', 'EXTERNAL_SERVICES_ARE_MOCKED'];
 
 export default masterPageController;

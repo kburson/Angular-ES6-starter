@@ -22,4 +22,4 @@ export default angular.module('constants',[])
     }
 })
 .constant('EXTERNAL_SERVICES', window.resources)
-.constant('MOCKED_SERVICES', window.services_are_mocked === 'undefined' ? false : window.services_are_mocked);
+.constant('EXTERNAL_SERVICES_ARE_MOCKED', window.services_are_mocked === 'undefined' ? false : window.services_are_mocked);

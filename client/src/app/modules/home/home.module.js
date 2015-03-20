@@ -12,13 +12,10 @@
 
 import 'angular';
 
-import commonModule from 'common/common.module';
-
 import greetingModule from './greeting/greeting.module';
 import welcomeModule  from './welcome/welcome.module';
 
 export default angular.module('home', [
-  commonModule.name,
   greetingModule.name,
   welcomeModule.name
 ])

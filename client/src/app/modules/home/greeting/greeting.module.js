@@ -7,7 +7,7 @@ import template           from './greeting.tpl!text';
 import GreetingController from './GreetingController';
 import GreetingService    from './GreetingService';
 
-export default angular.module('welcome', [ 'ui.router', commonModule.name ])
+export default angular.module('greeting', [ 'ui.router', commonModule.name ])
 
   .service(GreetingService.name, GreetingService)
 
