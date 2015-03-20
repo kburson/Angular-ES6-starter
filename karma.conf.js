@@ -29,7 +29,8 @@ module.exports = function (config) {
       // basePath + files[n]
       files: [
         '_build/js/lib/*.js',
-        'client/src/app/modules/**/*.js'
+        'client/src/app/modules/**/*.js',
+        'client/src/app/**/*.tpl'
       ],
 
       testFileSuffix: '.spec.js',
