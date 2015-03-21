@@ -1,5 +1,6 @@
 'use strict';
 /*jshint esnext: true */
+import json from 'resources.json!';
 /**
  * @ngdoc module
  * @name constants
@@ -21,5 +22,5 @@ export default angular.module('constants',[])
         benign: ['home']
     }
 })
-.constant('EXTERNAL_SERVICES', window.resources)
+.constant('EXTERNAL_SERVICES', json)
 .constant('EXTERNAL_SERVICES_ARE_MOCKED', window.services_are_mocked === 'undefined' ? false : window.services_are_mocked);

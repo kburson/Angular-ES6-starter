@@ -6,6 +6,7 @@ import angular from 'angular';
 import constantsModule  from './constants/constants.module';
 
 import authenticationModule from './authentication/authentication.module';
+import AuthenticationInterceptor from './authentication/AuthenticationInterceptor';
 import redirectionModule from './redirection/redirection.module';
 
 import masterPageModule from './masterPage/masterPage.module';
