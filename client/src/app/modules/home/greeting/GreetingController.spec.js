@@ -26,6 +26,6 @@ describe('Controller: app.home.GreetingController', function () {
     }));
 
     it('should be defined', function () {
-        expect(ctrl).toBeDefined();
+        expect(ctrl).to.be.ok;
     });
 });

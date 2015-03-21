@@ -17,7 +17,7 @@ module.exports = function (config) {
       'karma-failed-reporter'
     ],
 
-    //files : [],
+    files : ['_build/js/lib/xcon-0.6.0.min.js'],
 
     systemjs: {
 
@@ -29,6 +29,7 @@ module.exports = function (config) {
       // basePath + files[n]
       files: [
         '_build/js/lib/*.js',
+        '_build/resources.json',
         'client/src/app/modules/**/*.js',
         'client/src/app/**/*.tpl'
       ],
@@ -70,7 +71,7 @@ module.exports = function (config) {
     reporters: ['junit', 'spec', 'failed'],
     reportSlowerThan: 1000,
     junitReporter: {
-      outputFile: '../../../../reports/unit-test-results.xml',
+      outputFile: 'reports/unit-test-results.xml',
       suite: ''
     },
     colors: true,
