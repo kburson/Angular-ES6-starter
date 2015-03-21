@@ -54,6 +54,7 @@ gulp.task('default', function (cb) {
       '######################################################################'
     ].join('\n#')));
     $.util.log($.util.colors.green('Total Build Time: ' + (Date.now() - startTime) + ' ms.\n'));
+    //cb();
   });
 });
 
@@ -115,13 +116,15 @@ gulp.task('unit', function(cb) {
 //
 //});
 
-gulp.task('e2e', function() {
-    $.util.log($.util.colors.green(['',
+gulp.task('e2e', function(cb) {
+    $.util.log($.util.colors.green(['','',
         'Starting functional Tests using Protractor and WebDriver',
         'Starting web server to host files from distribution folder, then',
         'I will start selenium server to act as a test proxy to the browser',
         'then I will run all functional e2e-tests against hosted app'
     ].join('\n### ')));
 
-    // setup and run protractor tests.
+    runSequence('protractor', cb);
+
+    $.util.log('\n------------------------------------\n   Done   \n\n');
 });

@@ -7,10 +7,12 @@
 
 describe('get random greeting', function() {
 
-  browser.get('');
+  beforeEach(function() {
+    browser.get('index.html');
+  });
 
   it('application should default to home page', function() {
-    expect(browser.getLocationAbsUrl()).toMatch('/home');
+    expect(browser.getLocationAbsUrl()).to.eventually.match(/\/home/);
   });
 
 });
