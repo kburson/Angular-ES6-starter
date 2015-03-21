@@ -31,7 +31,7 @@ module.exports = function (config) {
         '_build/js/lib/*.js',
         '_build/resources.json',
         'client/src/app/modules/**/*.js',
-        'client/src/app/**/*.tpl'
+        'client/src/app/modules/**/*.tpl'
       ],
 
       testFileSuffix: '.spec.js',
