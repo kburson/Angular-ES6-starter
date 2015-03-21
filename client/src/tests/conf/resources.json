@@ -1,0 +1,18 @@
+{
+	"useMockedServices": true,
+	"clientAppVersion": "0.0.2.local",
+	"env": "local",
+	"hosts": {
+		"api": "https://apps.localhost:9000",
+		"admin": "https://admin.localhost:9000"
+	},
+	"resources": {
+		"api": {
+			"greeting": "/api/greeting",
+			"createToken": "/api/jwt"
+		},
+		"admin": {
+			"authentication_params": "{client-host}#/redirect?returnTo={view}&pat={{token}}"
+		}
+	}
+}

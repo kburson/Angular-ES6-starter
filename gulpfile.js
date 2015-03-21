@@ -28,7 +28,7 @@ global.FILES = config.files;
 
 global.isMocked = false;
 
-require('require-dir')('./gulp', {recurse: true});
+require('require-dir')('./tools/gulp-tasks', {recurse: true});
 
 // #######################################################
 
@@ -45,13 +45,13 @@ gulp.task('default', function (cb) {
   //notifier.notify({title: 'default task', message: 'build and test application'});
   runSequence('build', 'test', function(cb) {
     $.util.log($.util.colors.blue(['',
-      '#####################################################################',
-      '#                                                                   #',
-      '#   Your application has been compiled and is ready to go.          #',
-      '#   Use "gulp express" to host the applications locally             #',
-      '#                                                                   #',
-      '#####################################################################'
-    ].join('\n')));
+      '####################################################################',
+      '                                                                   #',
+      '   Your application has been compiled and is ready to go.          #',
+      '   Use "gulp express" to host the applications locally             #',
+      '                                                                   #',
+      '####################################################################'
+    ].join('\n#')));
     $.util.log($.util.colors.green('Total Build Time: ' + Date.now() /*- startTime*/));
   });
 });
@@ -94,9 +94,18 @@ gulp.task('build.mocked', function(cb) {
   runSequence('build','config.mocks', cb);
 });
 
-gulp.task('test', ['unit','e2e'], function() {
-    // karma
+gulp.task('test', ['build.mocked'], function(cb) {
 
+  $.util.log($.util.colors.green(['',
+    '############################################################',
+    '',
+    '         Starting unit tests with Karma and Mocha.',
+    '',
+    '############################################################'
+  ].join('\n#')));
+  runSequence('karma','e2e', cb);
+
+  // TODO: If tests fail then stop all gulp tasks!
 });
 
 gulp.task('unit', function() {

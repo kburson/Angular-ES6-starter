@@ -30,7 +30,7 @@ gulp.task('jscs', function() {
  * @return {Stream}
  */
 function analyzejshint(sources, overrideRcFile) {
-    var jshintrcFile = overrideRcFile || './.jshintrc';
+    var jshintrcFile = overrideRcFile || projectRoot + '/.jshintrc';
     $.util.log($.util.colors.green('Running JSHint'));
     $.util.log($.util.colors.blue(sources));
     return gulp
@@ -47,7 +47,7 @@ function analyzejshint(sources, overrideRcFile) {
 function analyzejscs(sources) {
     $.util.log($.util.colors.green('Running JSCS'));
     return gulp.src(sources)
-        .pipe($.jscs('./.jscsrc', {
+        .pipe($.jscs(projectRoot + '/.jscsrc', {
                              options: {
                                  config: '.jscsrc',
                                  reporter: require('jscs-stylish').path
@@ -81,7 +81,7 @@ function startPlatoVisualizer() {
         title: 'Plato Inspections Report',
         esnext: true
     };
-    var outputDir = './report/plato';
+    var outputDir = projectRoot + '/reports/plato';
 
     plato.inspect(files, outputDir, options, platoCompleted);
 

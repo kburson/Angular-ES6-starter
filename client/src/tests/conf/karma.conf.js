@@ -1,6 +1,6 @@
 module.exports = function (config) {
   config.set({
-    basePath: '/',
+    basePath: '../../../../',
     //urlRoot: '',
     //hostname: 'localhost',
     frameworks: [ 'systemjs','mocha','chai','chai-as-promised','sinon-chai'],
@@ -17,7 +17,7 @@ module.exports = function (config) {
       'karma-failed-reporter'
     ],
 
-    files : ['_build/js/lib/xcon-0.6.0.min.js'],
+    files : ['bower_components/extended-javascript-console/dist/xcon-0.6.0.min.js'],
 
     systemjs: {
 
@@ -46,7 +46,7 @@ module.exports = function (config) {
         'node_modules/angular-ui-router/release/angular-ui-router.js',
         'node_modules/angular-loading-bar/build/loading-bar.js',
 
-        '_build/resources.json', // this is the one 'built' file.  Need to create a mock version that is not compiled!
+        'client/src/tests/conf/resources.json',
 
         'client/src/app/modules/**/*.js',
         'client/src/app/modules/**/*.tpl'
@@ -77,7 +77,7 @@ module.exports = function (config) {
 
           'loading-bar'       : '../../../../node_modules/angular-loading-bar/build/loading-bar.js',
 
-          'resources.json'    : '../../../../_build/resources.json'
+          'resources.json'    : '../../tests/conf/resources.json'
         }
       }
     },
@@ -92,7 +92,7 @@ module.exports = function (config) {
     reporters: ['junit', 'spec', 'failed'],
     reportSlowerThan: 1000,
     junitReporter: {
-      outputFile: 'reports/unit-test-results.xml',
+      outputFile: '../../../../reports/unit-test-results.xml',
       suite: ''
     },
     colors: true,

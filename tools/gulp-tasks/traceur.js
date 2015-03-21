@@ -34,7 +34,7 @@ gulp.task('traceur', function(release) {
             //typeAssertions: true,
             //typeAssertionModule: 'assert',
             //sourceMaps: false, //'file',
-            //sourceRoot: __dirname + "/../client/src/app",
+            //sourceRoot: projectRoot + "/client/src/app",
             experimental: true
         }))
         //.pipe($.print(function(path) {return "----> compiled: " + path;}))

@@ -3,7 +3,7 @@ gulp.task('index:build', function() {
 
     //$.util.log(colors.green(['index:build: insert \<script\> tags into index.html',
     //' for *.js and *.css files in build folder'].join()));
-    var appVersion = require('../package.json').version; // TODO read environment variable from Jenkins to get BUILD #
+    var appVersion = require(projectRoot + '/package.json').version; // TODO read environment variable from Jenkins to get BUILD #
 
     var knownOptions = {
         string: ['env', 'host', 'appVersion', 'BUILD_NUMBER'],
