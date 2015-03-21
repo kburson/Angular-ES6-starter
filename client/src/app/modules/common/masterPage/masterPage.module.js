@@ -1,5 +1,6 @@
 import 'angular';
 import 'angular-ui-router';
+import 'angular-material';
 
 import constantsModule      from 'common/constants/constants.module';
 import MasterPageController from './MasterPageController';
@@ -7,7 +8,7 @@ import masterPageTemplate   from './masterPage.tpl!text';
 
 
 export default angular.module('masterPage', [
-    'ui.router', constantsModule.name
+    'ui.router', 'ngMaterial', constantsModule.name
   ])
   .controller(MasterPageController.name,     MasterPageController)
   .config( $stateProvider => {

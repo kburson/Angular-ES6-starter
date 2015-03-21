@@ -143,7 +143,7 @@
     "karma-junit-reporter": "^0.2.2",
     "karma-mocha": "^0.1.10",
     "karma-spec-reporter": "0.0.16",
-    "karma-systemjs": "git://github.com/rolaveric/karma-systemjs#issue7",
+    "karma-systemjs": "0.2.0",
     "less-plugin-autoprefix": "^1.4.0",
     "less-plugin-clean-css": "^1.4.0",
     "merge-stream": "^0.1.7",
