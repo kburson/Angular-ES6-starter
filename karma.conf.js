@@ -1,6 +1,6 @@
 module.exports = function (config) {
   config.set({
-    basePath: './',
+    basePath: '/',
     //urlRoot: '',
     //hostname: 'localhost',
     frameworks: [ 'systemjs','mocha','chai','chai-as-promised','sinon-chai'],
@@ -28,8 +28,26 @@ module.exports = function (config) {
       // load all test dependencies into memory
       // basePath + files[n]
       files: [
-        '_build/js/lib/*.js',
-        '_build/resources.json',
+        'client/lib/lodash.min.js',
+
+        'bower_components/plugin-json/json.js',
+        'bower_components/plugin-text/text.js',
+
+        'node_modules/angular/angular.js',
+        'node_modules/angular-aria/angular-aria.js',
+        'node_modules/angular-animate/angular-animate.js',
+        'node_modules/angular-messages/angular-messages.js',
+        'node_modules/angular-resource/angular-resource.js',
+        'node_modules/angular-cookies/angular-cookies.js',
+        'node_modules/angular-material/angular-material.js',
+        'node_modules/angular-mocks/angular-mocks.js',
+
+        'node_modules/angular-storage/dist/angular-storage.js',
+        'node_modules/angular-ui-router/release/angular-ui-router.js',
+        'node_modules/angular-loading-bar/build/loading-bar.js',
+
+        '_build/resources.json', // this is the one 'built' file.  Need to create a mock version that is not compiled!
+
         'client/src/app/modules/**/*.js',
         'client/src/app/modules/**/*.tpl'
       ],
@@ -40,23 +58,26 @@ module.exports = function (config) {
         baseURL: '/client/src/app/modules/',
         transpiler: 'traceur',
         paths: {
-          'angular'           : '../../../../_build/js/lib/angular.min.js',
-          'angular-animate'   : '../../../../_build/js/lib/angular-animate.min.js',
-          'angular-messages'  : '../../../../_build/js/lib/angular-messages.min.js',
-          'angular-aria'      : '../../../../_build/js/lib/angular-aria.min.js',
-          'angular-resource'  : '../../../../_build/js/lib/angular-resource.min.js',
-          'angular-cookies'   : '../../../../_build/js/lib/angular-cookies.min.js',
-          'angular-storage'   : '../../../../_build/js/lib/angular-storage.min.js',
-          'angular-material'  : '../../../../_build/js/lib/angular-material.min.js',
-          'angular-mocks'     : '../../../../_build/js/lib/angular-mocks.js',
-          'angular-ui-router' : '../../../../_build/js/lib/angular-ui-router.min.js',
-          'statehelper'       : '../../../../_build/js/lib/statehelper.min.js',
-          'lodash'            : '../../../../_build/js/lib/lodash.min.js',
-          'loading-bar'       : '../../../../_build/js/lib/loading-bar.min.js',
-          'json'              : '../../../../_build/js/lib/json.js',
-          'text'              : '../../../../_build/js/lib/text.js',
-          'resources.json'    : '../../../../_build/resources.json',
-          "*.es6": "*.es6"
+          'lodash'            : '../lib/lodash.min.js',
+
+          'json'              : '../../../../bower_components/plugin-json/json.js',
+          'text'              : '../../../../bower_components/plugin-text/text.js',
+
+          'angular'           : '../../../../node_modules/angular/angular.js',
+          'angular-animate'   : '../../../../node_modules/angular-animate/angular-animate.js',
+          'angular-messages'  : '../../../../node_modules/angular-messages/angular-messages.js',
+          'angular-aria'      : '../../../../node_modules/angular-aria/angular-aria.js',
+          'angular-resource'  : '../../../../node_modules/angular-resource/angular-resource.js',
+          'angular-cookies'   : '../../../../node_modules/angular-cookies/angular-cookies.js',
+          'angular-material'  : '../../../../node_modules/angular-material/angular-material.js',
+          'angular-mocks'     : '../../../../node_modules/angular-mocks/angular-mocks.js',
+
+          'angular-storage'   : '../../../../node_modules/angular-storage/dist/angular-storage.js',
+          'angular-ui-router' : '../../../../node_modules/angular-ui-router/release/angular-ui-router.js',
+
+          'loading-bar'       : '../../../../node_modules/angular-loading-bar/build/loading-bar.js',
+
+          'resources.json'    : '../../../../_build/resources.json'
         }
       }
     },
