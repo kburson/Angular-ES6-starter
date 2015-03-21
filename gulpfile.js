@@ -34,25 +34,26 @@ require('require-dir')('./tools/gulp-tasks', {recurse: true});
 
 gulp.task('default', function (cb) {
   var startTime =  Date.now();
-  $.util.log($.util.colors.blue(['',
+  $.util.log($.util.colors.blue(['','',
     '#####################################################################',
     '#                                                                   #',
-    '#   One moment please while I compile and test this application...  #',
+    '#   One moment please while I test, compile and test again...       #',
     '#                                                                   #',
     '#####################################################################'
   ].join('\n')));
   // notifier sends growl message not console message
   //notifier.notify({title: 'default task', message: 'build and test application'});
-  runSequence('build', 'test', function(cb) {
+  runSequence('test','unmock', function(cb) {
     $.util.log($.util.colors.blue(['',
-      '####################################################################',
-      '                                                                   #',
-      '   Your application has been compiled and is ready to go.          #',
-      '   Use "gulp express" to host the applications locally             #',
-      '                                                                   #',
-      '####################################################################'
+      '######################################################################',
+      '                                                                     #',
+      '   Your application has been tested, compiled and is ready to go.    #',
+      '   Use "gulp express" to host the application externally accessible  #',
+      '   Or "npm start" to host app in local dev mode only.                #',
+      '                                                                     #',
+      '######################################################################'
     ].join('\n#')));
-    $.util.log($.util.colors.green('Total Build Time: ' + Date.now() /*- startTime*/));
+    $.util.log($.util.colors.green('Total Build Time: ' + (Date.now() - startTime) + ' ms.\n'));
   });
 });
 
@@ -70,7 +71,7 @@ gulp.task('start', function(cb){
 });
 
 gulp.task('start.mocked', function(cb){
-    runSequence('build.mocked', 'test', 'express', cb);
+    runSequence('build',' mock', 'express', cb);
     $.util.log($.util.colors.red('The app has been compiled with mocked external services - for testing purposes only!'));
     $.util.log($.util.colors.green("Open a browser and connect to this computer (either ip address or local name) at port 5000\ni.e.  http://localhost:5000"));
 });
@@ -82,20 +83,19 @@ gulp.task('dev', function(cb) {
 });
 
 gulp.task('build', function(cb) {
-  if (!isMocked) {
-    $.util.log($.util.colors.blue('\n## Building with config set to use live external services'));
-  }
   runSequence('clean:build', 'less:build', ['config.resources', 'traceur', 'copy'], 'index:build', cb);
 });
 
 gulp.task('build.mocked', function(cb) {
-  isMocked = true;
-  $.util.log($.util.colors.red('\n## After compile I will set config to use mocked services'));
-  runSequence('build','config.mocks', cb);
+  runSequence('build','mock', cb);
 });
 
-gulp.task('test', ['build.mocked'], function(cb) {
+gulp.task('test', function(cb) {
+  runSequence('unit','build', 'mock', 'e2e', cb);
+  // TODO: If tests fail then stop all gulp tasks!
+});
 
+gulp.task('unit', function(cb) {
   $.util.log($.util.colors.green(['',
     '############################################################',
     '',
@@ -103,14 +103,7 @@ gulp.task('test', ['build.mocked'], function(cb) {
     '',
     '############################################################'
   ].join('\n#')));
-  runSequence('karma','e2e', cb);
-
-  // TODO: If tests fail then stop all gulp tasks!
-});
-
-gulp.task('unit', function() {
-  $.util.log($.util.colors.green(['','Starting unit tests with Karma and Mocha.'].join('\n### ')));
-
+  runSequence('karma', cb);
 });
 
 

@@ -44,6 +44,12 @@ gulp.task('config.resources', function () {
   return buildResourceFile(false);
 });
 
-gulp.task('config.mocks', function () {
+gulp.task('mock', function () {
+  $.util.log($.util.colors.yellow('\n########## configuring app to use mocked services'));
   return buildResourceFile(true);
+});
+
+gulp.task('unmock', function () {
+  $.util.log($.util.colors.red('\n########## configuring app to use live services'));
+  return buildResourceFile(false);
 });

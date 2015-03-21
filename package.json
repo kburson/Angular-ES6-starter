@@ -28,12 +28,16 @@
     "pretest": "gulp config.resources",
     "test": "gulp karma",
 
+    "update-webdriver": "webdriver-manager update",
+
+    "preprotractor": "npm run update-webdriver",
+    "protractor": "protractor client/src/tests/conf/protractor.conf.js",
 
     "start": "http-server _build -a localhost -p 8000 -c-1 -d false --cors",
     "express": "gulp express",
 
-    "premocked": "gulp build.mocked",
-    "mocked": "npm start",
+    "premock": "gulp build.mocked",
+    "mock": "npm start",
 
     "preclient": "gulp build",
     "client": "npm run express",

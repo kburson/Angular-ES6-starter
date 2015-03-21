@@ -25,15 +25,15 @@ gulp.task('copy-html', function() {
     '*.html',
     '!index.html'
   ], {cwd: 'client/src/app/'})
-    //.pipe($.newer(DIR.build))
-    .pipe($.print())
+    .pipe($.newer(DIR.build))
+    //.pipe($.print())
     .pipe(gulp.dest(DIR.build));
 
   var tpl = gulp.src([
     '**/*.tpl'
   ], {cwd: 'client/src/app/'})
-    //.pipe($.newer(DIR.build))
-    .pipe($.print())
+    .pipe($.newer(DIR.build))
+    //.pipe($.print())
     .pipe(gulp.dest(DIR.build + '/js/'));
 
   return eventStream.concat(html, tpl);
@@ -106,18 +106,18 @@ gulp.task('copy-vendor', function() {
         ], {cwd: 'node_modules'}),
 
         gulp.src([
-            'angular/angular.min.js?(.map)',
-            'angular-ui-router/release/angular-ui-router.min.js?(.map)',
-            'angular-ui-router.statehelper/statehelper.min.js?(.map)',
-            'angular-mocks/angular-mocks.js?(.map)',
-            'angular-animate/angular-animate.min.js?(.map)',
-            'angular-messages/angular-messages.min.js?(.map)',
-            'angular-aria/angular-aria.min.js?(.map)',
-            'angular-resource/angular-resource.min.js?(.map)',
-            'angular-cookies/angular-cookies.min.js?(.map)',
-            'angular-storage/dist/angular-storage.min.js?(.map)',
-            'angular-material/angular-material.min.js?(.map)',
-            'angular-loading-bar/build/loading-bar.min.js?(.map)'
+            'angular/angular?(.min).js?(.map)',
+            'angular-ui-router/release/angular-ui-router?(.min).js?(.map)',
+            'angular-ui-router.statehelper/statehelper?(.min).js?(.map)',
+            'angular-mocks/angular-mocks?(.min).js?(.map)',
+            'angular-animate/angular-animate?(.min).js?(.map)',
+            'angular-messages/angular-messages?(.min).js?(.map)',
+            'angular-aria/angular-aria?(.min).js?(.map)',
+            'angular-resource/angular-resource?(.min).js?(.map)',
+            'angular-cookies/angular-cookies?(.min).js?(.map)',
+            'angular-storage/dist/angular-storage?(.min).js?(.map)',
+            'angular-material/angular-material?(.min).js?(.map)',
+            'angular-loading-bar/build/loading-bar?(.min).js?(.map)'
         ], {cwd: 'node_modules'}))
     //.pipe($.print(function(path) {return "<---- copy: " + path;}))
     .pipe($.flatten())
