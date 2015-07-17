@@ -27,14 +27,14 @@ let authenticationController = class AuthenticationController {
     authenticate() {
 
         // send auth request with pre-auth-token to ver-api
-        console.out('authenticate first');
+        console.log('authenticate first');
         let promise = this.authenticationService.requestAuthToken(this.$stateParams.pat);
         let ctrl = this;
         promise.then( (data) => {
                 // save the token in default headers
                 this.authenticationService.authToken = data.jwt;
 
-                console.out(`go to ${this.$stateParams.returnTo}`);
+                console.log(`go to ${this.$stateParams.returnTo}`);
 
                 // replace the path with the new path (state), and replace the remainder of the url with nothing.
                 this.$location.replace()

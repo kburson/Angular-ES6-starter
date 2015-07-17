@@ -39,7 +39,7 @@ let authenticationInterceptor = class AuthenticationInterceptor {
         let authentication_url = redirect_uri_template.replace('{{redir}}', encodeURIComponent(redirect_uri));
 
         // TODO: When I am mocking, how do I not redirect
-        console.out("--> redirect to: ", authentication_url);
+        console.log("--> redirect to: ", authentication_url);
         self.$window.location.replace(authentication_url);
 
         return self.$q.defer(rejection);
@@ -47,7 +47,7 @@ let authenticationInterceptor = class AuthenticationInterceptor {
 
     request(config) {
         if (config.url.indexOf('.tpl') < 0 ) {
-            console.out(
+            console.log(
             `request sent: [METHOD:"${config.method}", url:"${config.url}", headers:"${JSON.stringify(config.headers)}"]`
         );
         }
@@ -56,7 +56,7 @@ let authenticationInterceptor = class AuthenticationInterceptor {
 
     responseError(rejection) {
 
-        console.out(`request denied: [ status:${rejection.status}, errors:${JSON.stringify(rejection.data.errors)}]` );
+        console.log(`request denied: [ status:${rejection.status}, errors:${JSON.stringify(rejection.data.errors)}]` );
 
         switch(rejection.status) {
             case 401:
@@ -68,7 +68,7 @@ let authenticationInterceptor = class AuthenticationInterceptor {
                 break;
 
             case 503:
-                console.out(JSON.stringify(rejection));
+                console.log(JSON.stringify(rejection));
                 break;
 
             default:

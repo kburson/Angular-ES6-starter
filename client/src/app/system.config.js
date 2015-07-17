@@ -1,26 +1,30 @@
 // all paths are relative to the location of index.html
 startTimeOfApplicationLoading = Date.now();
 
+System.defaultJSExtensions = true;
+
+// Identical to writing System.basURL - ...
 System.config({
   baseURL: '/js/modules/', //relative to index.html location
 
   // all paths are relative to baseURL
   paths: {
-    'lodash'             : '../lib/lodash.min.js',
-    'angular'            : '../lib/angular.min.js',
-    'angular-animate'    : '../lib/angular-animate.min.js',
-    'angular-messages'   : '../lib/angular-messages.min.js',
-    'angular-aria'       : '../lib/angular-aria.min.js',
-    'angular-resource'   : '../lib/angular-resource.min.js',
-    'angular-cookies'    : '../lib/angular-cookies.min.js',
-    'angular-storage'    : '../lib/angular-storage.min.js',
-    'angular-material'   : '../lib/angular-material.min.js',
-    'angular-mocks'      : '../lib/angular-mocks.js',
-    'angular-ui-router'  : '../lib/angular-ui-router.min.js',
-    'loading-bar'        : '../lib/loading-bar.min.js',
-    'json'               : '../lib/json.js',
-    'text'               : '../lib/text.js',
-    'resources.json'     : '../../resources.json'
+    'lodash'             : 'lib/lodash.js',
+    'angular'            : 'lib/angular.js',
+    'angular-animate'    : 'lib/angular-animate.js',
+    'angular-messages'   : 'lib/angular-messages.js',
+    'angular-aria'       : 'lib/angular-aria.js',
+    'angular-resource'   : 'lib/angular-resource.js',
+    'angular-cookies'    : 'lib/angular-cookies.js',
+    'angular-storage'    : 'lib/angular-storage.js',
+    'angular-material'   : 'lib/angular-material.js',
+    'angular-mocks'      : 'lib/angular-mocks.js',
+    'angular-ui-router'  : 'lib/angular-ui-router.js',
+    'statehelper'        : 'lib/statehelper.js',
+    'loading-bar'        : 'lib/loading-bar.js',
+    'json'               : 'lib/json.js',
+    'text'               : 'lib/text.js',
+    'resources.json'     : '../resources.json'
   },
   // give hints for module dependencies
   meta: {

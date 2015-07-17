@@ -12,7 +12,7 @@ System.import('resources.json!').then(function(json) {
         );
       },
       function(a, b, c) {
-        console.log('\na:', a.message, a.stack, '\nb:', b, '\nc:', c);
+        console.log('\na:', a, '\nb:', b, '\nc:', c);
       }
     );
   } else {
@@ -26,7 +26,7 @@ System.import('resources.json!').then(function(json) {
         );
       },
       function (a, b, c) {
-        console.log('\na:', a.message, a.stack,  '\nb:', b, '\nc:', c);
+        console.log('\na:', a, '\nb:', b, '\nc:', c);
       }
     );
   }

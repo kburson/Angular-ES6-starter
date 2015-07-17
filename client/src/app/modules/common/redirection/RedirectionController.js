@@ -18,7 +18,7 @@ let redirectionController = class RedirectionController {
     {
         if ($location.search().pat && $location.search().returnTo) {
             let params = { pat: $location.search().pat, returnTo: $location.search().returnTo };
-            console.out( `redirect to state: ${$location.search().returnTo}, params: ${JSON.stringify(params)}`);
+            console.log( `redirect to state: ${$location.search().returnTo}, params: ${JSON.stringify(params)}`);
 
             $state.go('authenticate', params);
         }

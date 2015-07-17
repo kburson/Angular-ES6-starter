@@ -40,8 +40,8 @@ export default angular.module('app', [
 
     $window.clientVersion = $window.clientVersion || 'LOCAL';
 
-    console.out('App has been initialized');
+    console.log('App has been initialized');
 
     let loadTime = Date.now() - startTimeOfApplicationLoading;
-    console.out(`Total time to load application ${loadTime / 1000} seconds`);
+    console.log(`Total time to load application ${loadTime / 1000} seconds`);
 });

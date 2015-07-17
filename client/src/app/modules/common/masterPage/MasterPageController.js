@@ -41,20 +41,20 @@ let masterPageController = class MasterPageController {
         this.$mdSidenav(`${edge}Nav`).toggle()
             .then( () => {
                 nav.locked = nav.open;
-                console.out(`${edge} side nav has been toggled`,{"color":"red"});
+                console.log(`${edge} side nav has been toggled`,{"color":"red"});
             });
     }
 
     openSideNav(edge="right") {
         this.$mdSidenav(`${edge}Nav`).open()
             .then( () => {
-                console.out(`${edge} side nav has been opened`,{"color":"red"});
+                console.log(`${edge} side nav has been opened`,{"color":"red"});
             });
     }
     closeSideNav(edge="right") {
         this.$mdSidenav(`${edge}Nav`).close()
             .then( () => {
-                console.out(`${edge} side nav has been closed`,{"color":"red"});
+                console.log(`${edge} side nav has been closed`,{"color":"red"});
             });
     }
     showBottomSheet($event) {
