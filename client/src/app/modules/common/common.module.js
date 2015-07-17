@@ -22,11 +22,11 @@ export default angular.module('common', [
     masterPageModule.name
 ])
 .config( $httpProvider =>  {
-    console.out("Register http interceptor");
+    console.log("Register http interceptor");
     $httpProvider.interceptors.push(AuthenticationInterceptor.name);
 })
 .run( (/*$http,*/) =>  {
-    //console.out('configure the http header defaults');
+    //console.log('configure the http header defaults');
     //$http.defaults.headers.common['x-tw-data'] = 'proof I can set default header';
 })
 .run(MainTheme);

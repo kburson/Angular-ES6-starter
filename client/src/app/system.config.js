@@ -9,22 +9,22 @@ System.config({
 
   // all paths are relative to baseURL
   paths: {
-    'lodash'             : 'lib/lodash.js',
-    'angular'            : 'lib/angular.js',
-    'angular-animate'    : 'lib/angular-animate.js',
-    'angular-messages'   : 'lib/angular-messages.js',
-    'angular-aria'       : 'lib/angular-aria.js',
-    'angular-resource'   : 'lib/angular-resource.js',
-    'angular-cookies'    : 'lib/angular-cookies.js',
-    'angular-storage'    : 'lib/angular-storage.js',
-    'angular-material'   : 'lib/angular-material.js',
-    'angular-mocks'      : 'lib/angular-mocks.js',
-    'angular-ui-router'  : 'lib/angular-ui-router.js',
-    'statehelper'        : 'lib/statehelper.js',
-    'loading-bar'        : 'lib/loading-bar.js',
-    'json'               : 'lib/json.js',
-    'text'               : 'lib/text.js',
-    'resources.json'     : '../resources.json'
+    'lodash'             : '../lib/lodash.js',
+    'angular'            : '../lib/angular.js',
+    'angular-animate'    : '../lib/angular-animate.js',
+    'angular-messages'   : '../lib/angular-messages.js',
+    'angular-aria'       : '../lib/angular-aria.js',
+    'angular-resource'   : '../lib/angular-resource.js',
+    'angular-cookies'    : '../lib/angular-cookies.js',
+    'angular-storage'    : '../lib/angular-storage.js',
+    'angular-material'   : '../lib/angular-material.js',
+    'angular-mocks'      : '../lib/angular-mocks.js',
+    'angular-ui-router'  : '../lib/angular-ui-router.js',
+    'statehelper'        : '../lib/statehelper.js',
+    'loading-bar'        : '../lib/loading-bar.js',
+    'json'               : '../lib/json.js',
+    'text'               : '../lib/text.js',
+    'resources.json'     : '../../resources.json'
   },
   // give hints for module dependencies
   meta: {

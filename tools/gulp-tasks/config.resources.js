@@ -6,7 +6,7 @@ function buildResourceFile(useMocks) {
     string: ['env', 'host', 'appVersion', 'BUILD_NUMBER'],
     default: {
       env: process.env.env || 'local',
-      host: process.env.API_HOST || 'localhost:9000',
+      host: process.env.TW_DVM || 'localhost:9000',
       version: process.env.appVersion || appVersion,
       build_number: process.env.BUILD_NUMBER || 'local'
     }
