@@ -1,3 +1,5 @@
+<span us-spinner="{{mp.spinnerOptions}}" spinner-key="master-spinner"></span>
+
 <div layout="column" flex layout-fill>
 
     <section id="header-toolbar">

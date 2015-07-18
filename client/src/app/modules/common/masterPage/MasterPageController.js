@@ -11,6 +11,8 @@
 import 'angular-aria';
 import 'angular-animate';
 import 'angular-material';
+import 'spin';
+import 'angular-spinner';
 
 // only import to define as a dependency
 import 'common/constants/constants.module';
@@ -23,7 +25,7 @@ import bottomSheet from './bottom-sheet.tpl!text';
 let masterPageController = class MasterPageController {
 
     /* @ngInject */
-    constructor($state, $mdSidenav, $mdBottomSheet, AuthenticationService, EXTERNAL_SERVICES_ARE_MOCKED) {
+    constructor($state, $mdSidenav, $mdBottomSheet, $timeout, usSpinnerService, AuthenticationService, EXTERNAL_SERVICES_ARE_MOCKED) {
         this.$state = $state;
         this.$mdSidenav = $mdSidenav;
         this.$mdBottomSheet = $mdBottomSheet;
@@ -33,6 +35,26 @@ let masterPageController = class MasterPageController {
             left: {open: true, locked: true},
             right: {open: false, locked: false}
         };
+
+      this.spinnerOptions = {
+        radius: 30,
+        width: 8,
+        length: 16,
+        corners: 0.7,
+        shadow: true,
+        zIndex: 1000,
+        trail: 100,
+        speed: 1.0,
+        opacity: 0.2,
+        color: "#CCDDEE",
+        scale: 3.75
+      };
+
+      usSpinnerService.spin('master-spinner');
+      $timeout( () => {
+        usSpinnerService.stop('master-spinner');
+      },10000);
+
     }
 
     toggleSideNav(edge="right") {
@@ -80,6 +102,6 @@ let masterPageController = class MasterPageController {
         this.$state.go('root.home');
     }
 }
-masterPageController.$inject = ['$state', '$mdSidenav', '$mdBottomSheet', 'AuthenticationService', 'EXTERNAL_SERVICES_ARE_MOCKED'];
+masterPageController.$inject = ['$state', '$mdSidenav', '$mdBottomSheet', '$timeout', 'usSpinnerService', 'AuthenticationService', 'EXTERNAL_SERVICES_ARE_MOCKED'];
 
 export default masterPageController;

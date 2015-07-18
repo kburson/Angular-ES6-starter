@@ -21,6 +21,10 @@ System.config({
     'angular-mocks'      : '../lib/angular-mocks.js',
     'angular-ui-router'  : '../lib/angular-ui-router.js',
     'statehelper'        : '../lib/statehelper.js',
+
+    'spin'               : '../lib/spin.js',
+    'angular-spinner'    : '../lib/angular-spinner.js',
+
     'loading-bar'        : '../lib/loading-bar.js',
     'json'               : '../lib/json.js',
     'text'               : '../lib/text.js',
@@ -38,7 +42,11 @@ System.config({
     'angular-messages'   : {format: 'global', deps: ['angular']},
     'angular-mocks'      : {format: 'global', deps: ['angular']},
     'angular-resource'   : {format: 'global', deps: ['angular']},
-    'angular-storage'    : {format: 'global', deps: ['angular']}
+    'statehelper'        : {format: 'global', deps: ['angular','angular-ui-router']},
+    'angular-storage'    : {format: 'global', deps: ['angular']},
+
+    'spin'               : {format: 'global'},
+    'angular-spinner'    : {format: 'global', deps: ['angular', 'spin']}
   },
 
   // create aliases
