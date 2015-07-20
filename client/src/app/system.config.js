@@ -10,6 +10,7 @@ System.config({
   // all paths are relative to baseURL
   paths: {
     'lodash'             : '../lib/lodash.js',
+
     'angular'            : '../lib/angular.js',
     'angular-animate'    : '../lib/angular-animate.js',
     'angular-messages'   : '../lib/angular-messages.js',
@@ -20,12 +21,13 @@ System.config({
     'angular-material'   : '../lib/angular-material.js',
     'angular-mocks'      : '../lib/angular-mocks.js',
     'angular-ui-router'  : '../lib/angular-ui-router.js',
+
+    // we are no longer using this in main app, TODO: update this app.
     'statehelper'        : '../lib/statehelper.js',
 
     'spin'               : '../lib/spin.js',
     'angular-spinner'    : '../lib/angular-spinner.js',
 
-    'loading-bar'        : '../lib/loading-bar.js',
     'json'               : '../lib/json.js',
     'text'               : '../lib/text.js',
     'resources.json'     : '../../resources.json'
@@ -46,7 +48,10 @@ System.config({
     'angular-storage'    : {format: 'global', deps: ['angular']},
 
     'spin'               : {format: 'global'},
-    'angular-spinner'    : {format: 'global', deps: ['angular', 'spin']}
+    'angular-spinner'    : {format: 'global', deps: ['angular', 'spin']},
+
+    'json'               : {format: 'global'},
+    'text'               : {format: 'global'}
   },
 
   // create aliases

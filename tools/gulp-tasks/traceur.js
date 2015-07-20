@@ -1,5 +1,5 @@
 
-gulp.task('traceur', function(release) {
+gulp.task('compile', function(release) {
     //$.util.log($.util.colors.green(['transpile: Convert all **/*.es6.js source files to **/*.es5.js',
     // '(ES5 compatible source files) and save in build folder'].join()));
 
