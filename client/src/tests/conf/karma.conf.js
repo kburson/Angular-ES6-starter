@@ -52,6 +52,12 @@ module.exports = function (config) {
         'client/src/app/modules/**/*.tpl'
       ],
 
+      includeFiles: [
+        '../../../../node_modules/es6-module-loader/dist/es6-module-loader.js',
+        '../../../../node_modules/systemjs/dist/systemjs.js',
+        '../../../../node_modules/traceur/bin/traceur.js'
+      ],
+
       testFileSuffix: '.spec.js',
 
       config: {
@@ -77,7 +83,12 @@ module.exports = function (config) {
 
           'loading-bar'       : '../../../../node_modules/angular-loading-bar/build/loading-bar.js',
 
-          'resources.json'    : '../../tests/conf/resources.json'
+          'resources.json'    : '../../tests/conf/resources.json',
+
+          'es6-module-loader' : '../../../../node_modules/es6-module-loader/dist/es6-module-loader.js',
+          'systemjs'          : '../../../../node_modules/systemjs/dist/system.js',
+          'traceur'           : '../../../../node_modules/traceur/bin/traceur.js'
+
         }
       }
     },
@@ -92,7 +103,8 @@ module.exports = function (config) {
     reporters: ['junit', 'spec', 'failed'],
     reportSlowerThan: 1000,
     junitReporter: {
-      outputFile: '../../../../reports/unit-test-results.xml',
+      outputDir: '../../../../reports',
+      outputFile: 'unit-test-results.xml',
       suite: ''
     },
     colors: true,
