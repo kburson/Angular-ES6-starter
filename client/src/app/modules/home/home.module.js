@@ -12,8 +12,8 @@
 
 import 'angular';
 
-import greetingModule from './greeting/greeting.module';
-import welcomeModule  from './welcome/welcome.module';
+import greetingModule from './greeting/greeting.module.js';
+import welcomeModule  from './welcome/welcome.module.js';
 
 export default angular.module('home', [
   greetingModule.name,

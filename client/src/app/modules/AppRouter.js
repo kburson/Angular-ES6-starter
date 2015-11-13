@@ -7,11 +7,11 @@
 import 'angular-ui-router';
 import 'statehelper';
 
-import MasterTemplateController from './common/masterTemplate/MasterTemplateController';
-import AuthenticationController from './common/authentication/AuthenticationController';
-import RedirectionController    from './common/redirection/RedirectionController';
-import WelcomeController        from './home/welcome/WelcomeController';
-import GreetingController       from './home/greeting/GreetingController';
+import MasterTemplateController from './common/masterTemplate/MasterTemplateController.js';
+import AuthenticationController from './common/authentication/AuthenticationController.js';
+import RedirectionController    from './common/redirection/RedirectionController.js';
+import WelcomeController        from './home/welcome/WelcomeController.js';
+import GreetingController       from './home/greeting/GreetingController.js';
 
 //import * as greeting from './home/greeting/GreetingController';
 

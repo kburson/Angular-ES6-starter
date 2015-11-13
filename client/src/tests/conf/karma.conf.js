@@ -1,6 +1,8 @@
 module.exports = function (config) {
   config.set({
-    basePath: '../../../../',
+    // ./client/src/tests/conf/karam.conf.js
+
+    basePath: '../../../../', // project root
     //urlRoot: '',
     //hostname: 'localhost',
     frameworks: [ 'systemjs','mocha','chai','chai-as-promised','sinon-chai'],
@@ -17,7 +19,7 @@ module.exports = function (config) {
       'karma-failed-reporter'
     ],
 
-    files : ['bower_components/extended-javascript-console/dist/xcon-0.6.0.min.js'],
+    //files : ['bower_components/extended-javascript-console/dist/xcon-0.6.0.min.js'],
 
     systemjs: {
 
@@ -48,7 +50,10 @@ module.exports = function (config) {
 
         'client/src/tests/conf/resources.json',
 
-        'client/src/app/modules/**/*.js',
+        'client/src/app/modules/home/greeting/GreetingController.js',
+        'client/src/app/modules/home/greeting/GreetingService.js',
+        'client/src/app/modules/home/greeting/GreetingController.spec.js',
+
         'client/src/app/modules/**/*.tpl'
       ],
 
@@ -64,7 +69,9 @@ module.exports = function (config) {
         baseURL: '/client/src/app/modules/',
         transpiler: 'traceur',
         paths: {
-          'lodash'            : '../lib/lodash.min.js',
+          'resources.json'    : '../../tests/conf/resources.json',
+
+          'lodash'            : '../../../lib/lodash.min.js',
 
           'json'              : '../../../../bower_components/plugin-json/json.js',
           'text'              : '../../../../bower_components/plugin-text/text.js',
@@ -83,7 +90,6 @@ module.exports = function (config) {
 
           'loading-bar'       : '../../../../node_modules/angular-loading-bar/build/loading-bar.js',
 
-          'resources.json'    : '../../tests/conf/resources.json',
 
           'es6-module-loader' : '../../../../node_modules/es6-module-loader/dist/es6-module-loader.js',
           'systemjs'          : '../../../../node_modules/systemjs/dist/system.js',

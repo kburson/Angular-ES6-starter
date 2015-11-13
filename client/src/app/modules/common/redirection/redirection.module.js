@@ -1,7 +1,7 @@
 import 'angular';
 import 'angular-ui-router';
 
-import RedirectionController  from './RedirectionController';
+import RedirectionController  from './RedirectionController.js';
 
 export default angular.module('redirection', [ 'ui.router' ])
 

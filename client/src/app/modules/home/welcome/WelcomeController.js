@@ -8,7 +8,7 @@
  * @requires cosntants
  * */
 
-import 'common/constants/constants.module'; // 'APP_INFO'
+import 'common/constants/constants.module.js'; // 'APP_INFO'
 import './welcome.tpl!text';
 
 let welcomeController = class WelcomeController {
@@ -22,6 +22,6 @@ let welcomeController = class WelcomeController {
         return this.info.name;
     }
 
-}
+};
 welcomeController.$inject = ['APP_INFO'];
 export default welcomeController;

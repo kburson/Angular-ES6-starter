@@ -10,7 +10,7 @@
 
 import 'angular'; // '$location'
 import 'angular-ui-router'; // '$state', '$stateParams'
-import './AuthenticationService';
+import './AuthenticationService.js';
 
 let authenticationController = class AuthenticationController {
 

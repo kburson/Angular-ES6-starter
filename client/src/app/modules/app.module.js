@@ -7,8 +7,8 @@ import 'angular-ui-router'; // '$state', '$urlRouterProvider'
 import 'spin';
 import 'angular-spinner';
 
-import commonModule from './common/common.module';
-import homeModule   from './home/home.module';
+import commonModule from './common/common.module.js';
+import homeModule   from './home/home.module.js';
 
 export default angular.module('app', [
     'ui.router',

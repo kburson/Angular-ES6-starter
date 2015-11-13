@@ -11,7 +11,7 @@
  * */
 
 import 'angular-ui-router';
-import './GreetingService';
+import './GreetingService.js';
 
 let greetingController = class GreetingController {
 

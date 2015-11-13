@@ -2,8 +2,8 @@ import 'angular';
 import 'angular-ui-router';
 import 'angular-material';
 
-import constantsModule      from 'common/constants/constants.module';
-import MasterPageController from './MasterPageController';
+import constantsModule      from 'common/constants/constants.module.js';
+import MasterPageController from './MasterPageController.js';
 import masterPageTemplate   from './masterPage.tpl!text';
 
 

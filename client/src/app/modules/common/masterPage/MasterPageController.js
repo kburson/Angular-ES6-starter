@@ -15,8 +15,8 @@ import 'spin';
 import 'angular-spinner';
 
 // only import to define as a dependency
-import 'common/constants/constants.module';
-import 'common/authentication/AuthenticationService';
+import 'common/constants/constants.module.js';
+import 'common/authentication/AuthenticationService.js';
 import './masterPage.tpl!text';
 
 import bottomSheet from './bottom-sheet.tpl!text';

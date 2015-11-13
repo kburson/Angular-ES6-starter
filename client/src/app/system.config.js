@@ -1,11 +1,11 @@
 // all paths are relative to the location of index.html
 startTimeOfApplicationLoading = Date.now();
 
-System.defaultJSExtensions = true;
-
 // Identical to writing System.basURL - ...
 System.config({
   baseURL: '/js/modules/', //relative to index.html location
+
+  defaultJSExtensions: false,
 
   // all paths are relative to baseURL
   paths: {

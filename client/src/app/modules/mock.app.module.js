@@ -4,7 +4,7 @@
 import angular from 'angular';
 import 'angular-mocks';
 
-import appModule from './app.module';
+import appModule from './app.module.js';
 
 let mockModule = angular.module('mock.app', [ appModule.name, 'ngMockE2E']);
 

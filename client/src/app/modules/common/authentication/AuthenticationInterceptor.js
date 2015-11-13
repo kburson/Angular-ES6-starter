@@ -2,7 +2,7 @@
 /*jshint esnext: true */
 
 import 'angular'; // '$q', '$window', '$location'
-import 'common/constants/constants.module'; // 'EXTERNAL_SERVICES'
+import 'common/constants/constants.module.js'; // 'EXTERNAL_SERVICES'
 
 // this variable is defined in the global scope,
 // but it will be wrapped in an AMD requirejs define statement

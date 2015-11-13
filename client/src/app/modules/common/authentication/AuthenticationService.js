@@ -13,7 +13,7 @@ import 'angular'; // '$http'
 import 'angular-resource'; // '$resource
 import 'angular-storage';  // 'store'
 
-import 'common/constants/constants.module'; //'EXTERNAL_SERVICES'
+import 'common/constants/constants.module.js'; //'EXTERNAL_SERVICES'
 
 let authenticationService = class AuthenticationService {
 
